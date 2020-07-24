@@ -7,13 +7,13 @@ public class DayNightCycle : MonoBehaviour
 
     Animator animator;
     
-    [SerializeField] Sprite dawn;
-    [SerializeField] Sprite midday;
-    [SerializeField] Sprite sunset;
-    [SerializeField] Sprite midnight;
+    // [SerializeField] SpriteRenderer dawn;
+    // [SerializeField] SpriteRenderer midday;
+    // [SerializeField] SpriteRenderer sunset;
+    // [SerializeField] SpriteRenderer midnight;
 
-    [SerializeField] SpriteRenderer fadeInRenderer;
-    [SerializeField] SpriteRenderer fadeOutRenderer;
+    // [SerializeField] SpriteRenderer fadeInRenderer;
+    // [SerializeField] SpriteRenderer fadeOutRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -36,27 +36,32 @@ public class DayNightCycle : MonoBehaviour
     {       
         switch (value)
         {
-            case "dawn":
-                fadeInRenderer.sprite = dawn;
-                fadeOutRenderer.sprite = midnight;
+            case "dawn":{
+                //animator.SetTrigger("dawn");
                 break;
 
-            case "midday":
-                fadeInRenderer.sprite = midday;
-                fadeOutRenderer.sprite = dawn;
+            }
+                
+            case "midday":{
+               //animator.SetTrigger("mid");
                 break;
+            }
+                
 
-            case "sunset":
-                fadeInRenderer.sprite = sunset;
-                fadeOutRenderer.sprite = midday;
+            case "sunset":{
+               // animator.SetTrigger("sunset");
                 break;
+            }
+                
 
-            case "midnight":
-                fadeInRenderer.sprite = midnight;
-                fadeOutRenderer.sprite = sunset;
+            case "midnight":{
+                //animator.SetTrigger("night");
                 break;
-        } 
+            }
         
-        animator.SetTrigger("Change");
+        } 
+    
+
+       
     }
 }
