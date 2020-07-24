@@ -14,14 +14,14 @@ namespace Garden
             effects = new List<Effect>();
 
             //Effects creation
-            SunEffect sunEffect = new SunEffect();
+           
 
 
             //Effects addition
-            effects.Add(sunEffect);
+            
 
         }
-        public override void Update()
+        public override void Update(float delta)
         {
             foreach(Effect e in effects)
             {

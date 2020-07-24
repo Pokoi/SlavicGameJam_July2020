@@ -5,11 +5,12 @@ using UnityEngine;
 namespace Garden{
     public class SunEffect : Effect
     {
-        public SunEffect(){
-            
+        private Sun sun;
+        public SunEffect(Sun sun){
+            this.sun = sun;
         }
          public override void Execute(){
-             Debug.Log("Hace Calor ay me quemo soy una florecilla");
+             Debug.Log(sun.GetCurrentSun);
          }
     }
 }
