@@ -41,7 +41,12 @@ namespace Garden
             {
                 name = gameObject.name;
             }
-           
+
+            foreach (Delegate sender in delegates)
+            {
+                sender.Run(GetCurrentState());
+            }
+
             SceneSystem.Instance.GetTimeSystem.AddComponent(name, this);
         }
 
