@@ -37,25 +37,25 @@ public class DayNightCycle : MonoBehaviour
         switch (value)
         {
             case "dawn":{
-                //animator.SetTrigger("dawn");
+                animator.SetTrigger("dawn");
                 break;
 
             }
                 
             case "midday":{
-               //animator.SetTrigger("mid");
+               animator.SetTrigger("mid");
                 break;
             }
                 
 
             case "sunset":{
-               // animator.SetTrigger("sunset");
+               animator.SetTrigger("sunset");
                 break;
             }
                 
 
             case "midnight":{
-                //animator.SetTrigger("night");
+                animator.SetTrigger("night");
                 break;
             }
         
