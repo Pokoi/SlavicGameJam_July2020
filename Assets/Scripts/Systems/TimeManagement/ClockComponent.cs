@@ -59,7 +59,7 @@ namespace Garden
         /// <param name="delta"></param>
         public void Execute(float delta)
         {
-            currentTick += delta;           
+            currentTick += delta;    
 
             if (currentTick > ticks)
             {

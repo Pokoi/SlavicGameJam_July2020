@@ -1,18 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
-public class WateringCanEffect : MonoBehaviour
+namespace Garden{
+public class WateringCanEffect : Effect
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private WateringCan wateringCan;
+        public WateringCanEffect(WateringCan wateringCan){
+            this.wateringCan = wateringCan;
+        }
+         public override void Execute(){
+             Debug.Log(wateringCan.GetCurrentWater);
+         }
+}
 }

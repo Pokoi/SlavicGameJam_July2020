@@ -6,7 +6,7 @@ namespace Garden
 {
     public abstract class System
     {
-        bool active;
+        bool active = true;
 
        public abstract void Update(float delta);
 
