@@ -4,13 +4,14 @@ using UnityEngine;
 
 namespace Garden
 {
-    public abstract class System 
+    public abstract class System
     {
         bool active;
 
-       public abstract void Update();
+        public abstract void Init();
+        public abstract void Update();
 
-       public bool is_active => active;
+        public bool is_active => active;
     }
 
 }
