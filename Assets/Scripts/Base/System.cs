@@ -8,9 +8,9 @@ namespace Garden
     {
         bool active;
 
-       public abstract void Update();
+       public abstract void Update(float delta);
 
-       public bool is_active => active;
+       public bool IsActive => active;
     }
 
 }
