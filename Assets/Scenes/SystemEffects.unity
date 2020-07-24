@@ -258,14 +258,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: SeasonsClock
   states:
-  - spring
   - summer
-  - autumn
+  - fall
   - winter
-  ticks: 5
+  - spring
+  ticks: 20
   delegates:
   - target: {fileID: 206781408}
-    functionName: 
+    functionName: SeasonChanged
 --- !u!1 &206781408
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +309,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbbe844581ab53d4097ff2ce798762a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSun: 5
+  startingSun: 10
+  seasonHeatModifiers:
+    summer: 2
+    fall: 1.5
+    winter: 0.5
+    spring: 1
+  dayHeatModifiers:
+    dawn: 1
+    midday: 1.5
+    sunset: 2
+    midnight: 1.25
 --- !u!1 &1028511720
 GameObject:
   m_ObjectHideFlags: 0
