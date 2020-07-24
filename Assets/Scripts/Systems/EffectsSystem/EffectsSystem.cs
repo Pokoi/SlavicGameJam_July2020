@@ -21,7 +21,7 @@ namespace Garden
             effects.Add(sunEffect);
 
         }
-        public override void Update()
+        public override void Update(float delta)
         {
             foreach(Effect e in effects)
             {
