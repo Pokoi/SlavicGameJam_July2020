@@ -4,7 +4,8 @@ namespace Garden
 {
     public class EffectsSystem : System
     {
-        public EffectsSystem(){
+        public EffectsSystem()
+        {
 
         }
 

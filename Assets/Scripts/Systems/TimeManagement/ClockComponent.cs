@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Xml.Serialization;
 using UnityEditorInternal;
 using UnityEngine;
@@ -28,6 +29,9 @@ namespace Garden
          
         float               currentTick;
         int                 stateIndex;
+             
+
+        [SerializeField] Delegate [] delegates;
 
         private void Start()
         {
@@ -68,7 +72,16 @@ namespace Garden
         /// <summary>
         /// Change the state of the clock
         /// </summary>
-        private void ChangeState() => stateIndex = stateIndex + 1 >= states.Length ? 0 : stateIndex + 1;
+        private void ChangeState()
+        {            
+            stateIndex = stateIndex + 1 >= states.Length ? 0 : stateIndex + 1;
+            
+            foreach(Delegate sender in delegates)
+            {
+                sender.Run(GetCurrentState());
+            }
+        } 
+        
 
         /// <summary>
         /// Get the current state of the clock
