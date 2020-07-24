@@ -26,7 +26,8 @@ namespace Garden
         {
             foreach(Effect e in effects)
             {
-                e.Execute();
+                if(e.IsActive)
+                    e.Execute();
             }
         }
 

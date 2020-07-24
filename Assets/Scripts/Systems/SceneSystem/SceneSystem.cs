@@ -65,7 +65,8 @@ namespace Garden
         public void Update()
         {
             foreach(System s in systems){
-                s.Update(UnityEngine.Time.deltaTime);
+                if(s.IsActive)
+                    s.Update(UnityEngine.Time.deltaTime);
             }
         }
 

@@ -24,7 +24,7 @@ namespace Garden
         /// <summary>
         /// The number of ticks between states
         /// </summary>
-        [SerializeField] int        ticks;
+        [SerializeField] float        ticks;
 
          
         float               currentTick;
@@ -59,7 +59,7 @@ namespace Garden
         /// <param name="delta"></param>
         public void Execute(float delta)
         {
-            currentTick += delta;           
+            currentTick += delta;    
 
             if (currentTick > ticks)
             {
