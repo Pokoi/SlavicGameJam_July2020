@@ -27,20 +27,41 @@ namespace Garden
         public void ChangeSunIntensity(string state){
 
             switch(state){
-                case "Morning":
+                case "dawn":
                 currentSun = startingSun;
                 break;
 
-                case "Noon":
+                case "midday":
                 currentSun*=2;
                 break;
 
-                case "Afternoon":
+                case "sunset":
                 currentSun/=3;
                 break;
 
-                case "Evening":
+                case "midnight":
                 currentSun = 0f;
+                break;
+            }
+        }
+
+        public void SeasonChanged(string season){
+            
+            switch(season){
+                case "spring":
+                currentSun += 2;
+                break;
+
+                case "summer":
+                currentSun*=2;
+                break;
+
+                case "autumn":
+                currentSun= startingSun;
+                break;
+
+                case "winter":
+                currentSun -= 10f;
                 break;
             }
         }

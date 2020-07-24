@@ -213,6 +213,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &193059353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193059354}
+  - component: {fileID: 193059355}
+  m_Layer: 0
+  m_Name: SeasonsClock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193059354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193059353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193059355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193059353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fdf8cfe28d16964ea61982db6c30485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: SeasonsClock
+  states:
+  - spring
+  - summer
+  - autumn
+  - winter
+  ticks: 5
+  delegates:
+  - target: {fileID: 206781408}
+    functionName: 
 --- !u!1 &206781408
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,57 +310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSun: 5
---- !u!1 &246006233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 246006235}
-  - component: {fileID: 246006234}
-  m_Layer: 0
-  m_Name: DayNightClock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &246006234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246006233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fdf8cfe28d16964ea61982db6c30485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: Day Night Cycle
-  states:
-  - morning
-  - noon
-  - afternoon
-  - evening
-  ticks: 0.25
-  delegates: []
---- !u!4 &246006235
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246006233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028511720
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,3 +438,77 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1342847199816457016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1342847199638837985, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_Name
+      value: DayNightClock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837986, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: delegates.Array.data[0].target
+      value: 
+      objectReference: {fileID: 206781408}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342847199638837987, guid: 02be87f4ec6ba15498eb20f8abbdf4a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 02be87f4ec6ba15498eb20f8abbdf4a7, type: 3}
