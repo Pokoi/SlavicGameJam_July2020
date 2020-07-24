@@ -18,6 +18,9 @@ namespace Garden
         private EffectsSystem effectsSystem;
         public EffectsSystem GetEffectsSystem => effectsSystem;
 
+        private Time timeSystem;
+        public Time GetTimeSystem => timeSystem;
+
 
         //List of systems
         private List<System> systems;
@@ -45,8 +48,9 @@ namespace Garden
             effectsSystem = new EffectsSystem();
             systems.Add(effectsSystem);
 
-            //Time ? system
-
+            //Time system
+            timeSystem = new Time();
+            systems.Add(timeSystem);
 
             //When all systems are added que initialize them
             foreach(System s in systems){
@@ -58,7 +62,7 @@ namespace Garden
         public void Update()
         {
             foreach(System s in systems){
-                s.Update();
+                s.Update(UnityEngine.Time.deltaTime);
             }
         }
 

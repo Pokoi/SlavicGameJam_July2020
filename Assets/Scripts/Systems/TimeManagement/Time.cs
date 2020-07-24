@@ -68,9 +68,19 @@ namespace Garden
             {
                 component.Value.Execute(delta * dayInMilliseconds);
             }
-        }       
+        }
 
+        /// <summary>
+        /// Get a component by his name
+        /// </summary>
+        /// <param name="name"> The name of the component </param>
+        /// <returns></returns>
+        public ClockComponent GetComponent(string name) => components[name];
 
+        public override void Init()
+        {
+            
+        }
     }
 
 }

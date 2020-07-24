@@ -37,27 +37,16 @@ namespace Garden
             {
                 name = gameObject.name;
             }
-
-            //TODO: Do the following steps
-
-            // Call to the instance of the scene
-            
-            // Get the reference of Time system
-            
-            // Subscribe to the system           
-            // time.AddComponent(name, this);
+           
+            SceneSystem.Instance.GetTimeSystem.AddComponent(name, this);
         }
 
+        /// <summary>
+        /// Unsubscribe to the system
+        /// </summary>
         private void OnDestroy()
         {
-            //TODO: Do the following steps
-
-            // Call to the instance of the scene
-
-            // Get the reference of Time system
-
-            // Unsubscribe to the system           
-            // time.RemoveComponent(name);
+            SceneSystem.Instance.GetTimeSystem.RemoveComponent(name);
         }
 
         /// <summary>
