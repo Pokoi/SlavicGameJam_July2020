@@ -24,7 +24,7 @@ namespace Garden
         /// <summary>
         /// The number of ticks between states
         /// </summary>
-        [SerializeField] int        ticks;
+        [SerializeField] float        ticks;
 
          
         float               currentTick;

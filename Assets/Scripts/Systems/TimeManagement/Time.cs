@@ -66,7 +66,7 @@ namespace Garden
         {
             foreach (KeyValuePair<string, ClockComponent> component in components)
             {
-                component.Value.Execute(delta * dayInSeconds);
+                component.Value.Execute(delta / dayInSeconds);
             }
         }
 
