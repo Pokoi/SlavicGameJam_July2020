@@ -29,7 +29,7 @@ namespace Garden
         float               currentTick;
         int                 stateIndex;
 
-        private void Awake()
+        private void Start()
         {
             stateIndex = 0;
 
@@ -55,12 +55,12 @@ namespace Garden
         /// <param name="delta"></param>
         public void Execute(float delta)
         {
-            currentTick += delta;
+            currentTick += delta;           
 
             if (currentTick > ticks)
             {
                 ChangeState();
-                currentTick -= ticks;
+                currentTick = 0;               
             }          
 
         }
@@ -68,7 +68,7 @@ namespace Garden
         /// <summary>
         /// Change the state of the clock
         /// </summary>
-        private void ChangeState() => stateIndex = stateIndex + 1 > states.Length ? 0 : stateIndex++;
+        private void ChangeState() => stateIndex = stateIndex + 1 >= states.Length ? 0 : stateIndex + 1;
 
         /// <summary>
         /// Get the current state of the clock

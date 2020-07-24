@@ -18,6 +18,7 @@ namespace Garden
         private EffectsSystem effectsSystem;
         public EffectsSystem GetEffectsSystem => effectsSystem;
 
+        [SerializeField]
         private Time timeSystem;
         public Time GetTimeSystem => timeSystem;
 
@@ -36,10 +37,6 @@ namespace Garden
             {
                 _instance = this;
             }
-        }
-
-        public void Start()
-        {
 
             //Systems list initialization
             systems = new List<System>();
@@ -49,14 +46,20 @@ namespace Garden
             systems.Add(effectsSystem);
 
             //Time system
-            timeSystem = new Time();
+            //timeSystem = new Time();
             systems.Add(timeSystem);
 
             //When all systems are added que initialize them
-            foreach(System s in systems){
+            foreach (System s in systems)
+            {
                 s.Init();
             }
-    
+        }
+
+        public void Start()
+        {
+
+            
         }
 
         public void Update()

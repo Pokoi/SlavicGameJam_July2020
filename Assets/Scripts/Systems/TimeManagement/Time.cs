@@ -37,8 +37,8 @@ namespace Garden
     public class Time : System
     {
         Dictionary<string, ClockComponent> components;
-
-        [SerializeField] float dayInMilliseconds;
+        
+        [SerializeField]  float dayInSeconds;
 
         public Time()
         {
@@ -66,7 +66,7 @@ namespace Garden
         {
             foreach (KeyValuePair<string, ClockComponent> component in components)
             {
-                component.Value.Execute(delta * dayInMilliseconds);
+                component.Value.Execute(delta * dayInSeconds);
             }
         }
 
