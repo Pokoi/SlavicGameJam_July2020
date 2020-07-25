@@ -48,7 +48,6 @@ namespace Garden
             {
                 GameObject go = Instantiate(baseElement, transform);
                 go.SetActive(false);
-
                 elements.Add(go);
                 ++i;
             }
