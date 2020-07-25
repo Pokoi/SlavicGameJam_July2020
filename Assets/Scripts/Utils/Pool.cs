@@ -32,7 +32,8 @@ namespace Garden
 
             if (i >= elements.Count) CreateElements(initialSize);
 
-            elements[i].SetActive(true);
+            elements[i].SetActive(true);         
+
             return elements[i];
         }
 
