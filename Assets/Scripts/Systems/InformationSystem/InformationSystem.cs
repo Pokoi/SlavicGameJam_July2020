@@ -13,7 +13,7 @@ namespace Garden
         private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
         private bool isOverWateringCan = false;
 
-        public WateringCan wateringCanComponent;
+        //public WateringCan wateringCanComponent;
 
         private bool isOverPlant = false;
         private Plant currPlant = null;
@@ -22,10 +22,7 @@ namespace Garden
         {
             if (hoverElement.mouseOver) //If mouse is over que show info
             {
-                if (hoverElement.component is Plant)
-                {
-                    Debug.Log(hoverElement.textToShow);
-                }
+                
             }
         }
 
@@ -38,28 +35,29 @@ namespace Garden
 
                 if (infoElement.component is WateringCan)
                 {
-                    cursortTex = waterCanCursorTexture;
-                    isOverWateringCan = true;
-                    Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
+                    SetWateringCanCursor(true);
                 }
             }
 
-            else if (currCursorState == CURSOR_STATE.DEFAULT)
+            else if (!PlayerController.Instance.IsUsingWaterCan)
             {
-                isOverWateringCan = false;
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                SetWateringCanCursor(false);
             }
 
+        }
+
+        public void SetWateringCanCursor(bool status)
+        {
+
+            currCursorState = status ? CURSOR_STATE.WATERINGCAN : CURSOR_STATE.DEFAULT;
+            Texture2D cursortTex = status ? waterCanCursorTexture : null;
+            isOverWateringCan = status;            
+            Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
         }
 
 
         public void ElementClicked(Component component)
         {
-
-            if (component is Plant && currCursorState == CURSOR_STATE.WATERINGCAN)
-            {
-                wateringCanComponent.GetWateringCanEffect.Execute(component as Plant);
-            }
 
         }
 
@@ -69,14 +67,17 @@ namespace Garden
             if (Input.GetMouseButtonDown(0))
             {
                 if (isOverWateringCan)
-                    currCursorState = CURSOR_STATE.WATERINGCAN;
+                {
+                    PlayerController.Instance.IsUsingWaterCan = true;
+                    SetWateringCanCursor(true);                   
+                }
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                currCursorState = CURSOR_STATE.DEFAULT;
-                isOverWateringCan = false;
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                PlayerController.Instance.IsUsingWaterCan = false;
+                SetWateringCanCursor(false);
+
             }
 
         }

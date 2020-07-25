@@ -14,9 +14,11 @@ namespace Garden
         private string currFertilizer = "Fertilizer Pro 4K";
 
         private bool planting = false;
-        public bool IsPlanting => planting;
+        public bool IsPlanting { get { return planting; } set { planting = value; } }
         private bool usingFertlizer = false;
         public bool IsUsingFertilizer => usingFertlizer;
+        private bool usingWaterCan = false;
+        public bool IsUsingWaterCan { get { return usingWaterCan; } set { usingWaterCan = value; } }
 
         private void Awake()
         {
@@ -30,14 +32,18 @@ namespace Garden
             }
         }
 
-        public string GetPlantType(){
+        public string GetPlantType()
+        {
             return currPlantType;
         }
-        public string GetCurrFertilizer(){
+
+        public string GetCurrFertilizer()
+        {
             return currFertilizer;
         }
 
-        void Update(){
+        void Update()
+        {
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {planting = true;
             usingFertlizer = false;
@@ -46,6 +52,14 @@ namespace Garden
             {planting = false;
             usingFertlizer = true;
             }
+        }
+
+        public void SelectSeed(string type)
+        {
+            currPlantType   = type;
+            planting        = true;
+            usingFertlizer  = false;
+            usingWaterCan   = false;
         }
     }
 }

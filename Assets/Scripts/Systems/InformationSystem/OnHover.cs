@@ -15,12 +15,19 @@ namespace Garden
 
         private Component currComponent = null;
 
+        Pot pot;
+
         void Start(){
             if(TryGetComponent(out WateringCan wCan))
                 currComponent = wCan;
 
             else if(TryGetComponent(out Plant plant)){
                 currComponent = plant;
+            }
+
+            if(TryGetComponent(out Pot pot))
+            {
+                this.pot = pot;
             }
         }
 
@@ -29,8 +36,17 @@ namespace Garden
                 //Information popup
                 Delegate.InformationElement hElement;
                 hElement.elementName = elementName;
-                hElement.mouseOver = true;
-                hElement.textToShow = textToShow;
+                hElement.mouseOver = true;               
+                
+                if (pot)
+                {
+                    hElement.textToShow = pot.GetTextInfo();
+                }
+                else
+                { 
+                    hElement.textToShow = textToShow;
+                }
+
                 hElement.component = null;
 
                 delegates[0].Run(hElement);
@@ -46,7 +62,10 @@ namespace Garden
 
 
                 hCursor.component = currComponent;
-                delegates[1].Run(hCursor);
+                if (delegates.Length > 1 && delegates[1] != null)
+                { 
+                    delegates[1].Run(hCursor);
+                }
             
         }
         void OnMouseExit()
@@ -72,12 +91,20 @@ namespace Garden
 
               
                 hCursor.component = currComponent;
-                delegates[1].Run(hCursor);
+                if (delegates.Length > 1 && delegates[1] != null)
+                {
+                    delegates[1].Run(hCursor);
+                }
 
         }
 
-        void OnMouseDown(){
-           delegates[2].Run(currComponent);
+        void OnMouseDown()
+        {
+            if (delegates.Length > 2 && delegates[2] != null)
+            {
+                delegates[2].Run(currComponent);
+            }
+            
         }
 
     }

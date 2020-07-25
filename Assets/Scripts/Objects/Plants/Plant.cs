@@ -9,6 +9,7 @@ namespace Garden
 
         [SerializeField] PlantPot       pot;
         PlantState     plantState;
+        public PlantState GetPlantState => plantState;
 
         [SerializeField] ClockComponent growingClock;
         [SerializeField] ClockComponent irrigationClock;
@@ -68,6 +69,7 @@ namespace Garden
 
         public void Irrigate()
         {
+            Debug.Log("He regado esta planta ");
             irrigationClock.ChangeState(-1);
             irrigationClock.Reset();
             plantState.UpdateIrrigationState(irrigationClock.GetCurrentState());
@@ -112,10 +114,7 @@ namespace Garden
             if (CheckIfGrowingIsPossible()) UpgradeGrowingPhase();
         }
 
-        public void Print(string text)
-        {
-            Debug.Log(text);
-        }
+       
 
         public void SetPlantType(string type){
             plantType = type;
