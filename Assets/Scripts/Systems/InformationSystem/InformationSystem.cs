@@ -26,7 +26,6 @@ namespace Garden
                 {
                     Debug.Log(hoverElement.textToShow);
                 }
-
             }
         }
 

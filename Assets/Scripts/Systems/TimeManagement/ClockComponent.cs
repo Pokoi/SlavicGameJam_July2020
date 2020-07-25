@@ -46,8 +46,8 @@ namespace Garden
             if (name == "")
             {
                 name = gameObject.name;
-            }            
-
+            }
+            
             foreach (Delegate sender in delegates)
             {
                 sender.Run(GetCurrentState());

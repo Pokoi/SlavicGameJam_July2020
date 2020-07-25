@@ -30,7 +30,7 @@ namespace Garden
         public void SetPot(PlantPot newPot) => pot = newPot;
 
 
-        private void Start()
+        public void Start()
         {
             //Catch the component
             growingClock = transform.GetComponent<ClockComponent>();
@@ -39,11 +39,17 @@ namespace Garden
 
             //Initialize clocks
             irrigationClock.SetTicks(plantState.GetDesiredValues().irrigationRate / irrigationClock.GetStates().Length);
-            irrigationClock.SetName("IrrigationClock" + irrigationClock.gameObject.GetInstanceID());
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
-            fertilizationClock.SetName("FertilizationClock" + fertilizationClock.gameObject.GetInstanceID());
             growingClock.SetTicks(plantState.GetDesiredValues().growingRate / growingClock.GetStates().Length);
-            growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
+
+             irrigationClock.SetName("IrrigationClock" + GetInstanceID());
+            irrigationClock.SetName("FertilizationClock" + GetInstanceID());
+             growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
+        }
+
+        public void RestartPlantState(string type){
+            plantState.RestartValues(type);
+           
         }
 
         public void ReadyToGrow(string growingState)
@@ -110,6 +116,13 @@ namespace Garden
         public void Print(string text)
         {
             Debug.Log(text);
+        }
+
+        public void SetPlantType(string type){
+            plantType = type;
+        }
+        public string GetPlantType(){
+            return plantType;
         }
     }
 }
