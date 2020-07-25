@@ -47,13 +47,11 @@ public class DayNightCycle : MonoBehaviour
                 break;
             }
                 
-
             case "sunset":{
                animator.SetTrigger("sunset");
                 break;
             }
                 
-
             case "midnight":{
                 animator.SetTrigger("night");
                 break;
