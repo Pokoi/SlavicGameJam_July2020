@@ -58,6 +58,7 @@ namespace Garden
         {
             irrigationClock.ChangeState(-1);
             irrigationClock.Reset();
+            Debug.Log("Me han regado");
         }
 
         public void Fertilizate(string fertilizationType)

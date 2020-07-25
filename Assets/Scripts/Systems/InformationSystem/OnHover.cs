@@ -16,7 +16,12 @@ namespace Garden
         private Component currComponent = null;
 
         void Start(){
-            
+            if(TryGetComponent(out WateringCan wCan))
+                currComponent = wCan;
+
+            else if(TryGetComponent(out Plant plant)){
+                currComponent = plant;
+            }
         }
 
         void OnMouseOver()
@@ -39,13 +44,6 @@ namespace Garden
                 hCursor.mouseOver = true;
                 hCursor.textToShow = "";
 
-                if(currComponent==null){
-                if(TryGetComponent(out WateringCan wCan)){
-                    currComponent = wCan;
-                }
-                else if(TryGetComponent(out Plant plant))
-                    currComponent = null;
-                    }
 
                 hCursor.component = currComponent;
                 delegates[1].Run(hCursor);
@@ -73,14 +71,6 @@ namespace Garden
                 hCursor.textToShow = "";
 
               
-               if(currComponent==null){
-                if(TryGetComponent(out WateringCan wCan)){
-                    currComponent = wCan;
-                }
-                else if(TryGetComponent(out Plant plant))
-                    currComponent = null;
-               }
-
                 hCursor.component = currComponent;
                 delegates[1].Run(hCursor);
 

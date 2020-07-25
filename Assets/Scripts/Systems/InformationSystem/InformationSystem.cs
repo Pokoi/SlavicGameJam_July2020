@@ -13,6 +13,8 @@ namespace Garden
         private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
         private bool isOverWateringCan = false;
 
+        public WateringCan wateringCanComponent;
+
         private bool isOverPlant = false;
         private Plant currPlant = null;
 
@@ -43,7 +45,7 @@ namespace Garden
                 }
             }
 
-            else if(currCursorState == CURSOR_STATE.DEFAULT)
+            else if (currCursorState == CURSOR_STATE.DEFAULT)
             {
                 isOverWateringCan = false;
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
@@ -52,14 +54,16 @@ namespace Garden
         }
 
 
-    public void ElementClicked(Component component){
-        if(component is Plant){
-            //Plant p = (Plant)component;
-            if(currCursorState == CURSOR_STATE.WATERINGCAN)
-                return;
+        public void ElementClicked(Component component)
+        {
+
+            if (component is Plant && currCursorState == CURSOR_STATE.WATERINGCAN)
+            {
+                wateringCanComponent.GetWateringCanEffect.Execute(component as Plant);
+            }
+
         }
-        
-    }
+
         public void Update()
         {
             Debug.Log(currCursorState);
@@ -69,11 +73,13 @@ namespace Garden
                     currCursorState = CURSOR_STATE.WATERINGCAN;
             }
 
-            if (Input.GetMouseButtonDown(1)){
+            if (Input.GetMouseButtonDown(1))
+            {
                 currCursorState = CURSOR_STATE.DEFAULT;
-                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                isOverWateringCan = false;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
-                
+
         }
     }
 }
