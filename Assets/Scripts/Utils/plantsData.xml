@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<plants>
+
+  <type name = "geranium">
+    <light>direct</light>
+    <temperature>moderate</temperature>
+    <flowering>spring_summer</flowering>
+    <irrigation>3.5</irrigation>
+    <fertilizerRate>15</fertilizerRate>
+    <fertilizerType>flowerPlants</fertilizerType>    
+  </type>
+
+  <type name = "aloe">
+    <light>direct</light>
+    <temperature>moderate_high</temperature>
+    <flowering>spring</flowering>
+    <irrigation>15</irrigation>
+    <fertilizerRate>40</fertilizerRate>
+    <fertilizerType>natural</fertilizerType>
+  </type>
+  
+  
+  
+  
+</plants>
