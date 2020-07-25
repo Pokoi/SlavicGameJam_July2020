@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Garden
 {
@@ -12,6 +13,7 @@ namespace Garden
         public string textToShow;
 
         [SerializeField] Delegate[] delegates;
+
 
         private Component currComponent = null;
 
@@ -106,6 +108,7 @@ namespace Garden
             }
             
         }
+
 
     }
 }

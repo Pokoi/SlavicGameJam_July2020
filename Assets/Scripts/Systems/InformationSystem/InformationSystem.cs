@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using TMPro;
 
 namespace Garden
 {
@@ -18,12 +20,21 @@ namespace Garden
         private bool isOverPlant = false;
         private Plant currPlant = null;
 
+        [SerializeField] WindowCollision windowCollision;
+
         public void ShowHoverInfo(Delegate.InformationElement hoverElement)
         {
             if (hoverElement.mouseOver) //If mouse is over que show info
             {
-                
+                StartCoroutine("FollowingMouse");
+                windowCollision.rectTransform.gameObject.SetActive(true);              
             }
+            else
+            {
+                StopCoroutine("FollowingMouse");
+                windowCollision.rectTransform.gameObject.SetActive(false);
+            }
+            windowCollision.rectTransform.GetComponentInChildren<TextMeshProUGUI>().SetText(hoverElement.textToShow);
         }
 
         public void ChangeMouse(Delegate.InformationElement infoElement)
@@ -77,9 +88,123 @@ namespace Garden
             {
                 PlayerController.Instance.IsUsingWaterCan = false;
                 SetWateringCanCursor(false);
+            }
+        }
 
+
+        IEnumerator FollowingMouse()
+        {
+            while (true)
+            {
+                Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);                
+                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);  
+                yield return new WaitForEndOfFrame();
+            }
+        }
+
+    }
+
+
+
+    [Serializable]
+    public class WindowCollision
+    {
+        Box window = new Box(new Vector2(2048 * 0.5f,  1535 * 0.5f),
+                                       2048,
+                                        1535);
+
+        [SerializeField] public RectTransform rectTransform;
+        [SerializeField] float margin;
+
+        struct Box
+        {
+            public Vector2 center;
+            public float width;
+            public float height;
+
+            public Box(Vector2 center, float width, float height)
+            {
+                this.center = center;
+                this.width = width;
+                this.height = height;
             }
 
+            /// <summary>
+            /// Check if two box collides
+            /// </summary>
+            /// <param name="other"></param>
+            /// <returns></returns>
+            public bool CollidesBox(Box other)
+            {
+                float halfWidth = width * 0.5f;
+                float halfHeight = height * 0.5f;
+
+                Vector2 point1 = new Vector2(center.x + halfWidth, center.y + halfHeight);
+                Vector2 point2 = new Vector2(center.x + halfWidth, center.y - halfHeight);
+                Vector2 point3 = new Vector2(center.x - halfWidth, center.y + halfHeight);
+                Vector2 point4 = new Vector2(center.x - halfWidth, center.y - halfHeight);
+
+                return other.ContainsPoint(point1) && other.ContainsPoint(point2) && other.ContainsPoint(point3) && other.ContainsPoint(point4);
+            }
+
+            /// <summary>
+            /// Check if a point is inside of this box
+            /// </summary>
+            /// <param name="point"></param>
+            /// <returns></returns>
+            private bool ContainsPoint(Vector2 point)
+            {
+                float halfWidth = width * 0.5f;
+                float halfHeight = height * 0.5f;
+
+                return point.x < center.x + halfWidth &&
+                        point.y < center.y + halfHeight &&
+                        point.x > center.x - halfWidth &&
+                        point.y > center.y - halfHeight;
+            }
         }
+
+        /// <summary>
+        /// Returns the position of the panel
+        /// </summary>
+        /// <param name="mousePosition"></param>
+        /// <returns></returns>
+        public Vector2 CalculatePosition(Vector2 mousePosition)
+        {
+            mousePosition = new Vector2(mousePosition.x * Screen.width, mousePosition.y * Screen.height); 
+            Box upPosition = new Box(
+                                        new Vector2(mousePosition.x, mousePosition.y + margin + rectTransform.rect.height),
+                                        rectTransform.rect.width * 2f,
+                                        rectTransform.rect.height * 2f
+                                    );
+
+            Box rightPosition = new Box(
+                                        new Vector2(mousePosition.x + margin + rectTransform.rect.width, mousePosition.y),
+                                        rectTransform.rect.width * 2f,
+                                        rectTransform.rect.height * 2f
+                                    );
+
+            Box leftPosition = new Box(
+                                        new Vector2(mousePosition.x - margin - rectTransform.rect.width, mousePosition.y),
+                                        rectTransform.rect.width * 2f,
+                                        rectTransform.rect.height * 2f
+                                    );
+
+            Box downPosition = new Box(
+                                        new Vector2(mousePosition.x, mousePosition.y - margin - rectTransform.rect.height),
+                                        rectTransform.rect.width * 2f,
+                                        rectTransform.rect.height * 2f
+                                    );            
+
+            if (upPosition.CollidesBox(window)) return upPosition.center;
+            if (rightPosition.CollidesBox(window)) return rightPosition.center;
+            if (leftPosition.CollidesBox(window)) return leftPosition.center;
+            if (downPosition.CollidesBox(window)) return downPosition.center;
+
+            return Vector2.negativeInfinity;
+        }
+
     }
+
+
 }

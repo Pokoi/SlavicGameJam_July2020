@@ -66,6 +66,12 @@ namespace Garden
         public InitializationList GetDesiredValues() => desiredValues;
 
         /// <summary>
+        /// Updates the light exposition
+        /// </summary>
+        /// <param name="exposition"></param>
+        public void UpdateLightExposition(string exposition) => lightExposition = exposition;
+
+        /// <summary>
         /// Updates the plant temperature 
         /// </summary>
         public void UpdatePlantTemperature(float temperature) => currentTemperature = temperature;       

@@ -40,7 +40,7 @@ namespace Garden
 
         private void Start()
         {
-            stateIndex = 0;
+            stateIndex = UnityEngine.Random.Range(0, states.Length);
             playing = true;
 
             if (name == "")
