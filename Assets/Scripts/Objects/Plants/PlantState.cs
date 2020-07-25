@@ -17,6 +17,12 @@ namespace Garden
             {
                 public float min;
                 public float max;
+
+                public Range(float min, float max)
+                {
+                    this.min = min;
+                    this.max = max;
+                }
             }
 
             public Range temperature;
@@ -26,6 +32,7 @@ namespace Garden
             
             public float    irrigationRate;
             public float    fertilizationRate;
+            public float    growingRate;
             
             public string fertilizationType;
 
@@ -40,6 +47,7 @@ namespace Garden
         string  irrigationState;
         string  fertilizationState;
         string  lightExposition;
+        string  growningState;
 
         public PlantState(string type)
         {
@@ -69,6 +77,11 @@ namespace Garden
         /// <param name="newState"></param>
         public void UpdateFertilizationState(string newState) => fertilizationState = newState;
 
+        /// <summary>
+        /// Update the growing state
+        /// </summary>
+        /// <param name="newState"></param>
+        public void Grow(string newState) => growningState = newState;
 
         public bool SatisfyStats()
         {
@@ -80,7 +93,7 @@ namespace Garden
         }
 
         public string ToString()
-        {
+        {           
             return "";
         }
     }

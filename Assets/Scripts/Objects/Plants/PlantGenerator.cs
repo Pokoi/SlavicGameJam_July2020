@@ -14,7 +14,7 @@ namespace Garden
         {
             public PlantState.InitializationList.Range temperatureMin;
             public PlantState.InitializationList.Range temperatureMax;
-
+            public PlantState.InitializationList.Range growingRate;
 
             public string[] floweringPossibleValues;
             public string[] irrigationPossibleValues;
@@ -51,15 +51,24 @@ namespace Garden
             // Catch a reference to the season clock to initialize the flowering possible values
             var seasonClockStates = SceneSystem.Instance.GetTimeSystem.GetComponent("SeasonClock").GetStates();
 
-            randomStandards.floweringPossibleValues = new string[seasonClockStates.Length];
-            int i = 0;
+            InitializeStandards();
 
-            while (i < seasonClockStates.Length)
-            {
-                randomStandards.floweringPossibleValues[i] = seasonClockStates[i];
-                ++i;
-            }
+        }
 
+        private void InitializeStandards()
+        {
+            randomStandards.temperatureMin  = new PlantState.InitializationList.Range (10, 20);
+            randomStandards.temperatureMax  = new PlantState.InitializationList.Range(10, 20); ;
+            randomStandards.growingRate     = new PlantState.InitializationList.Range(20, 35); ;
+
+            randomStandards.floweringPossibleValues       = new string[] { "summer", "fall", "winter", "spring"};
+            randomStandards.irrigationPossibleValues      = new string[] { "puddled", "wet", "damp", "dry" }; 
+            randomStandards.fertilizationPossibleValues   = new string[] { "excess", "moderate", "scarce" }; 
+            randomStandards.lightExpositionPossibleValues = new string[] { "direct", "indirect"}; 
+            randomStandards.fertilizationTypes            = new string[] { "flower", "minerals", "organic", "universal" };
+
+            randomStandards.irrigationRateRange     = new PlantState.InitializationList.Range(2, 20);
+            randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120); 
         }
 
 
@@ -102,6 +111,8 @@ namespace Garden
             initializationList.lightExposition = randomStandards.lightExpositionPossibleValues[UnityEngine.Random.Range(0, randomStandards.lightExpositionPossibleValues.Length)];
 
             initializationList.irrigationRate = UnityEngine.Random.Range(randomStandards.irrigationRateRange.min, randomStandards.irrigationRateRange.max);
+
+            initializationList.growingRate = UnityEngine.Random.Range(randomStandards.growingRate.min, randomStandards.growingRate.max);
 
             initializationList.fertilizationRate = UnityEngine.Random.Range(randomStandards.fertilizationRateRange.min, randomStandards.fertilizationRateRange.max);
             initializationList.fertilizationType = randomStandards.fertilizationTypes[UnityEngine.Random.Range(0, randomStandards.fertilizationTypes.Length)];

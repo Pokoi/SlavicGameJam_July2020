@@ -108,12 +108,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: GrowingClock
   states:
-  - Seed
-  - Sprout
-  - Mature
+  - seed
+  - sprout
+  - mature
   ticks: 0
   circularFlow: 0
-  delegates: []
+  delegates:
+  - target: {fileID: 1024371730214717412}
+    functionName: ReadyToGrow
 --- !u!1 &5759515132558483644
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,13 +161,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: IrrigationClock
   states:
-  - Charco
-  - Ni tan mal
-  - Secandome
-  - Mojama
+  - puddled
+  - wet
+  - damp
+  - dry
   ticks: 0
   circularFlow: 0
-  delegates: []
+  delegates:
+  - target: {fileID: 1024371730214717412}
+    functionName: UpdateIrrigationStats
 --- !u!1 &5953336806034919153
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,12 +215,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FertilizationClock
   states:
-  - Demasiada comida
-  - Comidito
-  - Con hambre
+  - excess
+  - moderate
+  - scarce
   ticks: 0
   circularFlow: 0
-  delegates: []
+  delegates:
+  - target: {fileID: 1024371730214717412}
+    functionName: UpdateFertilizationStats
 --- !u!1 &6412325843518666525
 GameObject:
   m_ObjectHideFlags: 0

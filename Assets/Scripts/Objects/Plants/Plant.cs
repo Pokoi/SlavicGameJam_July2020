@@ -40,44 +40,68 @@ namespace Garden
             //Initialize clocks
             irrigationClock.SetTicks(plantState.GetDesiredValues().irrigationRate / irrigationClock.GetStates().Length);
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
+            growingClock.SetTicks(plantState.GetDesiredValues().growingRate / growingClock.GetStates().Length);
         }
 
-        public void ReadyToGrow()
+        public void ReadyToGrow(string growingState)
         {
             isReadyToGrow = true;
-           // nextGrowingPhase = growingState;
+            nextGrowingPhase = growingState;
+            growingClock.Pause();
+            growingClock.Reset();
 
+            OnDataChange();
         }
 
         public void Atemperate(float sunIntensity)
         {
             plantState.UpdatePlantTemperature(pot.GetTransformedTemperature(sunIntensity));
+            OnDataChange();
         }
 
         public void Irrigate()
         {
             irrigationClock.ChangeState(-1);
             irrigationClock.Reset();
-            Debug.Log("Me han regado");
+            plantState.UpdateIrrigationState(irrigationClock.GetCurrentState());
         }
+
+        public void UpdateIrrigationStats(string state)
+        { 
+            plantState.UpdateIrrigationState(state);
+            OnDataChange();
+        }
+
+        public void UpdateFertilizationStats(string state)
+        { 
+            plantState.UpdateFertilizationState(state);
+            OnDataChange();
+        }       
+
 
         public void Fertilizate(string fertilizationType)
         {
             if (fertilizationType == plantState.GetDesiredValues().fertilizationType)
             { 
                 fertilizationClock.ChangeState(-1);
-                fertilizationClock.Reset();           
+                fertilizationClock.Reset();
+                plantState.UpdateFertilizationState(fertilizationClock.GetCurrentState());
             }
         }
 
-        public bool CheckIfGrowingIsPossible()
-        {
-            return isReadyToGrow;
-        }
+        public bool CheckIfGrowingIsPossible() => isReadyToGrow && plantState.SatisfyStats();
+      
 
         public void UpgradeGrowingPhase()
-        { 
-            
+        {
+            isReadyToGrow = false;
+            plantState.Grow(nextGrowingPhase);            
+            growingClock.Resume();
+        }
+
+        public void OnDataChange()
+        {
+            if (CheckIfGrowingIsPossible()) UpgradeGrowingPhase();
         }
 
         public void Print(string text)
