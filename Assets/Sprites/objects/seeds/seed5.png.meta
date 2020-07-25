@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: 0593af5b5f9e08f43922c36b6b3a1a48
+guid: 0ba0e2a7d60e0ab439ddc57afbcbc26d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6672382857636849991
+    second: seed5_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,11 +100,32 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: seed5_0
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 133
+        width: 1126
+        height: 1790
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6562d842fe663a0800000000000000
+      internalID: -6672382857636849991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: e71ebd26c7003f042b3520cf26d1347e
     internalID: 0
     vertices: []
     indices: 
