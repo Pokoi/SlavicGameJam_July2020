@@ -23,6 +23,7 @@ namespace Garden
         public Time GetTimeSystem => timeSystem;
 
 
+
         //List of systems
         private List<System> systems;
 
@@ -63,13 +64,14 @@ namespace Garden
         public void Start()
         {
 
-            
+
         }
 
         public void Update()
         {
-            foreach(System s in systems){
-                if(s.IsActive)
+            foreach (System s in systems)
+            {
+                if (s.IsActive)
                     s.Update(UnityEngine.Time.deltaTime);
             }
         }
