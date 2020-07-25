@@ -44,10 +44,12 @@ namespace Garden
 
              irrigationClock.SetName("IrrigationClock" + GetInstanceID());
             irrigationClock.SetName("FertilizationClock" + GetInstanceID());
+             growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
         }
 
         public void RestartPlantState(string type){
             plantState.RestartValues(type);
+           
         }
 
         public void ReadyToGrow(string growingState)

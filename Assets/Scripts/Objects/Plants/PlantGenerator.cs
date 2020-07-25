@@ -63,7 +63,7 @@ namespace Garden
 
             randomStandards.floweringPossibleValues       = new string[] { "summer", "fall", "winter", "spring"};
             randomStandards.irrigationPossibleValues      = new string[] { "puddled", "wet", "damp", "dry" }; 
-            randomStandards.fertilizationPossibleValues   = new string[] { "excess", "moderate", "scarce" }; 
+            randomStandards.fertilizationPossibleValues   = new string[] { "too much", "moderate", "scarce" }; 
             randomStandards.lightExpositionPossibleValues = new string[] { "direct", "indirect"}; 
             randomStandards.fertilizationTypes            = new string[] { "flower", "minerals", "organic", "universal" };
 
