@@ -4,6 +4,13 @@ namespace Garden
 {
     public class EffectsSystem : System
     {
+
+        SunEffect sunEffect;
+        SunEffect GetSunEffect => sunEffect;
+
+        WateringCanEffect wateringCanEffect;
+        WateringCanEffect GetWateringCanEffect => wateringCanEffect;
+
         public EffectsSystem()
         {
 
@@ -24,11 +31,11 @@ namespace Garden
         }
         public override void Update(float delta)
         {
-            foreach(Effect e in effects)
+            /*foreach(Effect e in effects)
             {
                 if(e.IsActive)
                     e.Execute();
-            }
+            }*/
         }
 
         public void AddEffect(Effect e){

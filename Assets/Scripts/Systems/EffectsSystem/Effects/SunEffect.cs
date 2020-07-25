@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace Garden{
     public class SunEffect : Effect
-    {
-        private Sun sun;
-        public SunEffect(Sun sun){
-            this.sun = sun;
-        }
-         public override void Execute(){
-             Debug.Log(sun.GetCurrentSun);
+    {        
+       
+         public override void Execute()
+         {
+            
          }
+
+        public void Execute(float sunIntensity) => SceneSystem.Instance.GetPlantManager.ApplySun(sunIntensity);
+
     }
 }

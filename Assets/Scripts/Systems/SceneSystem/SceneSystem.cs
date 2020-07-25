@@ -27,6 +27,10 @@ namespace Garden
         private List<System> systems;
 
 
+        [SerializeField] private PlantManager plantManager;
+        public PlantManager GetPlantManager => plantManager;
+
+
         private void Awake()
         {
             if (_instance != null && _instance != this)

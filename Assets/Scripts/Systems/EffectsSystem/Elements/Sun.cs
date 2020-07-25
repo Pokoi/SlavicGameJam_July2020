@@ -47,7 +47,7 @@ namespace Garden
         //[SerializeField] Delegate [] delegates;
 
         private void Start(){
-            sunEffect = new SunEffect(this);
+            sunEffect = new SunEffect();
 
             //Add the effect to the effectsystem
             SceneSystem.Instance.GetEffectsSystem.AddEffect(sunEffect);
@@ -92,6 +92,8 @@ namespace Garden
             }
 
             currentSun = startingSun * seasonModifier * dayModifier;
+
+            sunEffect.Execute(currentSun);
 
             Debug.Log("Potencia del sol: " + currentSun + "ºC al " + currentDayState + " en " + currentSeason);
         }

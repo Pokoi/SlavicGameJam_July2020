@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Garden
 {
-    public abstract class Effect
+    public abstract class Effect : MonoBehaviour
     {
         public abstract void Execute();
 

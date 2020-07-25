@@ -40,6 +40,11 @@ namespace Garden
         /// <param name="value"></param>
         public void Run(bool value) => target.SendMessage(functionName, value);
 
+        /// <summary>
+        /// Execute the delegate
+        /// </summary>
+        public void Run() => target.SendMessage(functionName);
+
 
     }
 }

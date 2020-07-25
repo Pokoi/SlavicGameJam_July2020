@@ -12,21 +12,23 @@ namespace Garden
         [Serializable]
         public struct RandomRanges
         {
-            public Plant.InitializationList.Range temperatureMin;
-            public Plant.InitializationList.Range temperatureMax;
+            public PlantState.InitializationList.Range temperatureMin;
+            public PlantState.InitializationList.Range temperatureMax;
 
 
             public string[] floweringPossibleValues;
+            public string[] irrigationPossibleValues;
+            public string[] fertilizationPossibleValues;
             public string[] lightExpositionPossibleValues;
             public string[] fertilizationTypes;
 
-            public Plant.InitializationList.Range irrigationRateRange;           
-            public Plant.InitializationList.Range fertilizationRateRange;
+            public PlantState.InitializationList.Range irrigationRateRange;           
+            public PlantState.InitializationList.Range fertilizationRateRange;
         }
 
         [SerializeField] RandomRanges randomStandards;
 
-        List<Plant.InitializationList> initializationLists;
+        List<PlantState.InitializationList> initializationLists;
 
         [SerializeField] List<string> plantTypes;
 
@@ -45,7 +47,20 @@ namespace Garden
         }
         
         private PlantGenerator()
-        { }
+        {
+            // Catch a reference to the season clock to initialize the flowering possible values
+            var seasonClockStates = SceneSystem.Instance.GetTimeSystem.GetComponent("SeasonClock").GetStates();
+
+            randomStandards.floweringPossibleValues = new string[seasonClockStates.Length];
+            int i = 0;
+
+            while (i < seasonClockStates.Length)
+            {
+                randomStandards.floweringPossibleValues[i] = seasonClockStates[i];
+                ++i;
+            }
+
+        }
 
 
         /// <summary>
@@ -53,7 +68,7 @@ namespace Garden
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Plant.InitializationList GetPlantValues(string name)
+        public PlantState.InitializationList GetPlantValues(string name)
         {
             int i = 0;
 
@@ -76,9 +91,9 @@ namespace Garden
         /// Creates a random plant and returns it
         /// </summary>
         /// <returns></returns>
-        Plant.InitializationList CreateRandom()
+        PlantState.InitializationList CreateRandom()
         {
-            Plant.InitializationList initializationList = new Plant.InitializationList();
+            PlantState.InitializationList initializationList = new PlantState.InitializationList();
 
             initializationList.temperature.min = UnityEngine.Random.Range( randomStandards.temperatureMin.min, randomStandards.temperatureMin.max);
             initializationList.temperature.max = UnityEngine.Random.Range( randomStandards.temperatureMax.min, randomStandards.temperatureMax.max);
@@ -90,6 +105,9 @@ namespace Garden
 
             initializationList.fertilizationRate = UnityEngine.Random.Range(randomStandards.fertilizationRateRange.min, randomStandards.fertilizationRateRange.max);
             initializationList.fertilizationType = randomStandards.fertilizationTypes[UnityEngine.Random.Range(0, randomStandards.fertilizationTypes.Length)];
+
+            initializationList.irrigationIdealStatus = randomStandards.irrigationPossibleValues[UnityEngine.Random.Range(0, randomStandards.irrigationPossibleValues.Length)];
+            initializationList.fertilizationIdealStatus = randomStandards.fertilizationTypes[UnityEngine.Random.Range(0, randomStandards.fertilizationTypes.Length)]; ;
 
             return initializationList;
 

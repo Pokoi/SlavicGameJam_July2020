@@ -8,8 +8,14 @@ public class WateringCanEffect : Effect
         public WateringCanEffect(WateringCan wateringCan){
             this.wateringCan = wateringCan;
         }
-         public override void Execute(){
+         public override void Execute()
+         {
              Debug.Log(wateringCan.GetCurrentWater);
          }
+
+        public void Execute(Plant plantToIrrigate)
+        {
+            plantToIrrigate.Irrigate();
+        }
 }
 }
