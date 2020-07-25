@@ -47,7 +47,7 @@ namespace Garden
             {
                 name = gameObject.name;
             }
-
+            
             foreach (Delegate sender in delegates)
             {
                 sender.Run(GetCurrentState());
@@ -55,6 +55,8 @@ namespace Garden
 
             SceneSystem.Instance.GetTimeSystem.AddComponent(name, this);
         }
+
+        public void SetName(string name) => this.name = name;
 
         /// <summary>
         /// Reset the ticks value between states

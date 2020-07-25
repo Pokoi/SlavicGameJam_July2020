@@ -54,6 +54,10 @@ namespace Garden
             desiredValues = PlantGenerator.Get.GetPlantValues(type);
         }
 
+        public void RestartValues(string type){
+            desiredValues = PlantGenerator.Get.GetPlantValues(type);
+        }
+
         /// <summary>
         /// Get the desired values
         /// </summary>

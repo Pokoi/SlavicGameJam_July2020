@@ -23,7 +23,7 @@ namespace Garden
         /// Gets a element from the pool. If no one is available, it creates a new serie of elements
         /// </summary>
         /// <returns></returns>
-        public GameObject GetFromPool()
+        public GameObject GetFromPool(string type)
         {
             int i = 0;
 
@@ -33,6 +33,13 @@ namespace Garden
             if (i >= elements.Count) CreateElements(initialSize);
 
             elements[i].SetActive(true);
+            Plant p = elements[i].GetComponent<Plant>();
+            
+            p.SetPlantType(type);
+            // //Maybe we need to call restart to the plant attributes 
+            //p.Start();
+            p.RestartPlantState(type);
+
             return elements[i];
         }
 
