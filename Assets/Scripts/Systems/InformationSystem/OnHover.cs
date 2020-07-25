@@ -26,6 +26,9 @@ namespace Garden
             else if(TryGetComponent(out Plant plant)){
                 currComponent = plant;
             }
+            else if(TryGetComponent(out FertilizationEffect fertEffect)){
+                 currComponent = fertEffect;
+            }
 
             if(TryGetComponent(out Pot pot))
             {
@@ -35,6 +38,7 @@ namespace Garden
 
         void OnMouseOver()
         {
+                Debug.Log(elementName);
                 //Information popup
                 Delegate.InformationElement hElement;
                 hElement.elementName = elementName;

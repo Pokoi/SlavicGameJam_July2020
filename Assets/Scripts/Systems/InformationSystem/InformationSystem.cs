@@ -10,10 +10,13 @@ namespace Garden
     {
 
         public Texture2D waterCanCursorTexture;
+        public Texture2D fertilizationCursorTexture;
 
-        private enum CURSOR_STATE { WATERINGCAN, DEFAULT }
+    [HideInInspector]
+        public enum CURSOR_STATE { WATERINGCAN, DEFAULT, FERTILIZATIONMODE }
         private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
         private bool isOverWateringCan = false;
+        private bool isOverFertilizer = false;
 
         //public WateringCan wateringCanComponent;
 
@@ -42,30 +45,43 @@ namespace Garden
             if (infoElement.mouseOver)
             {
 
-                Texture2D cursortTex = null;
-
                 if (infoElement.component is WateringCan)
                 {
-                    SetWateringCanCursor(true);
+                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);
+                    isOverWateringCan = true;
+                }
+                else if(infoElement.component is FertilizationEffect){
+                    SetCursorImg(fertilizationCursorTexture,CURSOR_STATE.FERTILIZATIONMODE);
+                    isOverFertilizer = true;
                 }
             }
 
-            else if (!PlayerController.Instance.IsUsingWaterCan)
+            else if (!PlayerController.Instance.IsUsingWaterCan && !PlayerController.Instance.IsUsingFertilizer)
             {
-                SetWateringCanCursor(false);
+                SetCursorImg(null,CURSOR_STATE.DEFAULT);
+                isOverWateringCan = false;
+                isOverFertilizer = false;
             }
 
         }
 
-        public void SetWateringCanCursor(bool status)
+    
+        public void SetCursorImg(Texture2D cursortTex, CURSOR_STATE cState)
         {
 
-            currCursorState = status ? CURSOR_STATE.WATERINGCAN : CURSOR_STATE.DEFAULT;
-            Texture2D cursortTex = status ? waterCanCursorTexture : null;
-            isOverWateringCan = status;            
+            currCursorState = cState;
             Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
         }
 
+        public void ChangeFertilizationCursor(bool active){
+            PlayerController.Instance.IsUsingFertilizer = active;
+            Texture2D texture = active ? fertilizationCursorTexture : null;
+
+            InformationSystem.CURSOR_STATE cState = active ? 
+                CURSOR_STATE.FERTILIZATIONMODE : CURSOR_STATE.DEFAULT;
+            
+            SetCursorImg(texture,cState);
+        }
 
         public void ElementClicked(Component component)
         {
@@ -75,21 +91,27 @@ namespace Garden
         public void Update()
         {
             Debug.Log(currCursorState);
+            Debug.Log(isOverWateringCan);
             if (Input.GetMouseButtonDown(0))
             {
                 if (isOverWateringCan)
                 {
                     PlayerController.Instance.IsUsingWaterCan = true;
-                    SetWateringCanCursor(true);                   
+                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);                   
                 }
+                /*else if(isOverFertilizer){
+                    PlayerController.Instance.IsUsingFertilizer = true;
+                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.FERTILIZATIONMODE);
+                }*/
             }
 
             if (Input.GetMouseButtonDown(1))
             {
                 PlayerController.Instance.IsUsingWaterCan = false;
-                SetWateringCanCursor(false);
-            }
-        }
+                PlayerController.Instance.IsUsingFertilizer = false;
+
+                isOverWateringCan = isOverFertilizer = false;
+                SetCursorImg(null,CURSOR_STATE.DEFAULT);
 
 
         IEnumerator FollowingMouse()
@@ -103,6 +125,7 @@ namespace Garden
         }
 
     }
+}
 
 
 
@@ -207,4 +230,5 @@ namespace Garden
     }
 
 
+}
 }
