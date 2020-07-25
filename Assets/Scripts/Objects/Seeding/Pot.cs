@@ -41,7 +41,7 @@ namespace Garden
                 Debug.Log("plantando");
             }
             else if (PlayerController.Instance.IsUsingFertilizer) {
-                string fertilizerType = PlayerController.Instance.GetPlantType();
+                string fertilizerType = PlayerController.Instance.GetCurrFertilizer();
 
                 fertilizationEffect.Execute(fertilizerType, potPlant);
 

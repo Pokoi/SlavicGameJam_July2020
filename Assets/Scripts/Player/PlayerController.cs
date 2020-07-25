@@ -16,7 +16,7 @@ namespace Garden
         private bool planting = false;
         public bool IsPlanting { get { return planting; } set { planting = value; } }
         private bool usingFertlizer = false;
-        public bool IsUsingFertilizer => usingFertlizer;
+        public bool IsUsingFertilizer { get { return usingFertlizer; } set { usingFertlizer = value; } }
         private bool usingWaterCan = false;
         public bool IsUsingWaterCan { get { return usingWaterCan; } set { usingWaterCan = value; } }
 
@@ -44,22 +44,35 @@ namespace Garden
 
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {planting = true;
-            usingFertlizer = false;
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                planting = true;
+                usingFertlizer = false;
             }
-            else if(Input.GetKeyDown(KeyCode.Alpha2))
-            {planting = false;
-            usingFertlizer = true;
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                planting = false;
+                usingFertlizer = true;
             }
         }
 
         public void SelectSeed(string type)
         {
-            currPlantType   = type;
-            planting        = true;
-            usingFertlizer  = false;
-            usingWaterCan   = false;
+            currPlantType = type;
+            planting = true;
+            usingFertlizer = false;
+            usingWaterCan = false;
         }
+
+        public void SelectFertilizer(string type)
+        {
+
+            currFertilizer = type;
+            planting = false;
+            usingFertlizer = true;
+            usingWaterCan = false;
+        }
+
+
     }
 }
