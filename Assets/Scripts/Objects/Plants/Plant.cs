@@ -88,6 +88,7 @@ namespace Garden
 
         public void Fertilizate(string fertilizationType)
         {
+            Debug.Log("He fertilizado.");
             if (fertilizationType == plantState.GetDesiredValues().fertilizationType)
             { 
                 fertilizationClock.ChangeState(-1);

@@ -11,6 +11,9 @@ namespace Garden
         WateringCanEffect wateringCanEffect;
         WateringCanEffect GetWateringCanEffect => wateringCanEffect;
 
+        FertilizationEffect fertilizationEffect;
+        FertilizationEffect GetFertilizationEffect => fertilizationEffect;
+
         public EffectsSystem()
         {
 

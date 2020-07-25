@@ -9,9 +9,12 @@ namespace Garden
         public Transform plantPivot;
         public Pool plantPool;
 
+        public FertilizationEffect fertilizationEffect;
+
+        private Plant potPlant = null;
         void OnMouseDown(){
             
-            if(PlayerController.Instance.GetPlantType() != null)
+            if(PlayerController.Instance.IsPlanting && PlayerController.Instance.GetPlantType() != null)
             {
                 
                 string plantType = PlayerController.Instance.GetPlantType();
@@ -19,8 +22,17 @@ namespace Garden
                 
                 plantGO.transform.parent = plantPivot;
                 plantGO.transform.position = plantPivot.position;
+                potPlant = plantGO.GetComponent<Plant>();
                 Debug.Log("plantando");
             }
+            else if(PlayerController.Instance.IsUsingFertilizer){
+                string fertilizerType = PlayerController.Instance.GetPlantType();
+
+                fertilizationEffect.Execute(fertilizerType,potPlant);                
+
+            }
+
+
         }
 
     }

@@ -11,6 +11,12 @@ namespace Garden
         public static PlayerController Instance { get { return _instance; } }
 
         private string currPlantType = "Geranio";
+        private string currFertilizer = "Fertilizer Pro 4K";
+
+        private bool planting = false;
+        public bool IsPlanting => planting;
+        private bool usingFertlizer = false;
+        public bool IsUsingFertilizer => usingFertlizer;
 
         private void Awake()
         {
@@ -26,6 +32,20 @@ namespace Garden
 
         public string GetPlantType(){
             return currPlantType;
+        }
+        public string GetCurrFertilizer(){
+            return currFertilizer;
+        }
+
+        void Update(){
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+            {planting = true;
+            usingFertlizer = false;
+            }
+            else if(Input.GetKeyDown(KeyCode.Alpha2))
+            {planting = false;
+            usingFertlizer = true;
+            }
         }
     }
 }
