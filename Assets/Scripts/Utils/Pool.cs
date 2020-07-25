@@ -54,6 +54,8 @@ namespace Garden
             while (i < size)
             {
                 GameObject go = Instantiate(baseElement, transform);
+                go.SetActive(true);
+                go.GetComponent<Plant>().Awake();
                 go.SetActive(false);
                 elements.Add(go);
                 ++i;
@@ -67,6 +69,7 @@ namespace Garden
         public void SendToPool(GameObject element)
         {
             element.SetActive(false);
+            element.transform.parent = this.transform;
             element.transform.position = Vector3.zero;
         }
 

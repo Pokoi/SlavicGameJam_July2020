@@ -30,10 +30,8 @@ namespace Garden
         public void SetPot(PlantPot newPot) => pot = newPot;
 
 
-        public void Start()
-        {
-            //Catch the component
-            growingClock = transform.GetComponent<ClockComponent>();
+        public void Awake()
+        {           
 
             plantState = new PlantState(plantType);
 
@@ -43,7 +41,7 @@ namespace Garden
             growingClock.SetTicks(plantState.GetDesiredValues().growingRate / growingClock.GetStates().Length);
 
              irrigationClock.SetName("IrrigationClock" + GetInstanceID());
-            irrigationClock.SetName("FertilizationClock" + GetInstanceID());
+             fertilizationClock.SetName("FertilizationClock" + GetInstanceID());
              growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
         }
 

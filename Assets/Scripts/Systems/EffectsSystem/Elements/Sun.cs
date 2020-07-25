@@ -94,8 +94,6 @@ namespace Garden
             currentSun = startingSun * seasonModifier * dayModifier;
 
             sunEffect.Execute(currentSun);
-
-            Debug.Log("Potencia del sol: " + currentSun + "ºC al " + currentDayState + " en " + currentSeason);
         }
 
         void Update(){

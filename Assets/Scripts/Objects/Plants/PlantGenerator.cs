@@ -28,9 +28,9 @@ namespace Garden
 
         [SerializeField] RandomRanges randomStandards;
 
-        List<PlantState.InitializationList> initializationLists;
+        List<PlantState.InitializationList> initializationLists = new List<PlantState.InitializationList>();
 
-        [SerializeField] List<string> plantTypes;
+        [SerializeField] List<string> plantTypes = new List<string>();
 
         static PlantGenerator instance;
 
@@ -70,7 +70,7 @@ namespace Garden
             randomStandards.irrigationRateRange     = new PlantState.InitializationList.Range(2, 20);
             randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120); 
 
-            plantTypes = new List<string>() {"a","b","c","d","e","f","g","h"};
+            //plantTypes = new List<string>() {"a","b","c","d","e","f","g","h"};
 
         }
 
@@ -84,7 +84,7 @@ namespace Garden
         {
             int i = 0;
 
-            while (plantTypes[i] != name && i < plantTypes.Count)
+            while ( i < plantTypes.Count && plantTypes[i] != name)
             {
                 ++i;
             }
@@ -93,9 +93,11 @@ namespace Garden
             {
                 initializationLists.Add(CreateRandom());
                 plantTypes.Add(name);
+                return initializationLists[plantTypes.Count - 1];
             }
 
             return initializationLists[i];
+
         }
 
 
