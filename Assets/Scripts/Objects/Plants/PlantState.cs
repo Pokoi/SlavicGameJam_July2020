@@ -48,6 +48,7 @@ namespace Garden
         string  fertilizationState;
         string  lightExposition;
         string  growningState;
+        string  plantType;
 
         public PlantState(string type)
         {
@@ -93,8 +94,23 @@ namespace Garden
         }
 
         public string ToString()
-        {           
-            return "";
+        {
+            string initialMessage = "Seems like in this pot there are some ";
+
+            return  initialMessage  +
+                    plantType       +
+                    " "             +
+                    growningState   +
+                    " at "          +
+                    currentTemperature +
+                    "ºC ."          +
+                    " The pot is "  +
+                    irrigationState +
+                    " with "        +
+                    lightExposition +
+                    " light and "   +
+                    fertilizationState +
+                    " amount of fertilizer.";
         }
     }
 }

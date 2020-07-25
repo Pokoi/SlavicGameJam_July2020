@@ -39,8 +39,11 @@ namespace Garden
 
             //Initialize clocks
             irrigationClock.SetTicks(plantState.GetDesiredValues().irrigationRate / irrigationClock.GetStates().Length);
+            irrigationClock.SetName("IrrigationClock" + irrigationClock.gameObject.GetInstanceID());
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
+            fertilizationClock.SetName("FertilizationClock" + fertilizationClock.gameObject.GetInstanceID());
             growingClock.SetTicks(plantState.GetDesiredValues().growingRate / growingClock.GetStates().Length);
+            growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
         }
 
         public void ReadyToGrow(string growingState)
