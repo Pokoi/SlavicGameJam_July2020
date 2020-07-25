@@ -19,6 +19,28 @@ namespace Garden
 
         [SerializeField] public WateringCan wateringCanComponent;
 
+        public enum LightExpositions { direct, indirect }
+        [SerializeField] LightExpositions lightExposition;
+
+        public string GetLightExposition() => lightExposition.ToString();
+
+        /// <summary>
+        /// Transform a given temperature
+        /// </summary>
+        /// <param name="sunTemperature"></param>
+        /// <returns></returns>
+        public float GetTransformedTemperature(float sunTemperature)
+        {
+            switch (lightExposition)
+            {
+                case LightExpositions.direct: sunTemperature *= 1.0f; break;
+                case LightExpositions.indirect: sunTemperature *= 0.75f; break;
+            }
+
+            return sunTemperature;
+        }
+
+
         private void Start()
         {
             onHover = transform.GetComponent<OnHover>();            
@@ -35,6 +57,7 @@ namespace Garden
                 plantGO.transform.parent = plantPivot;
                 plantGO.transform.position = plantPivot.position;
                 potPlant = plantGO.GetComponent<Plant>();
+                potPlant.SetPot(this);
 
                 PlayerController.Instance.IsPlanting = false;
 

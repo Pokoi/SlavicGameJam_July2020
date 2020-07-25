@@ -68,9 +68,7 @@ namespace Garden
             randomStandards.fertilizationTypes            = new string[] { "flower", "minerals", "organic", "universal" };
 
             randomStandards.irrigationRateRange     = new PlantState.InitializationList.Range(2, 20);
-            randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120); 
-
-            //plantTypes = new List<string>() {"a","b","c","d","e","f","g","h"};
+            randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120);           
 
         }
 

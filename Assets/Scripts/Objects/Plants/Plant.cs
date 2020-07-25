@@ -7,7 +7,7 @@ namespace Garden
     {
         [SerializeField] string plantType;
 
-        [SerializeField] PlantPot       pot;
+        Pot pot;
         PlantState     plantState;
         public PlantState GetPlantState => plantState;
 
@@ -22,20 +22,24 @@ namespace Garden
         ///  Gets a reference to the pot
         /// </summary>
         /// <returns></returns>
-        public PlantPot GetPot() => pot;
-        
+        public Pot GetPot() => pot;
+
         /// <summary>
         /// Sets the plant pot
         /// </summary>
         /// <param name="newPot"></param>
-        public void SetPot(PlantPot newPot) => pot = newPot;
+        public void SetPot(Pot newPot)
+        { 
+            pot = newPot;
+            plantState.UpdateLightExposition(pot.GetLightExposition());
+        
+        } 
 
 
         public void Awake()
         {           
 
             plantState = new PlantState(plantType);
-
             //Initialize clocks
             irrigationClock.SetTicks(plantState.GetDesiredValues().irrigationRate / irrigationClock.GetStates().Length);
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
@@ -63,8 +67,11 @@ namespace Garden
 
         public void Atemperate(float sunIntensity)
         {
-            plantState.UpdatePlantTemperature(pot.GetTransformedTemperature(sunIntensity));
-            OnDataChange();
+            if (pot != null)
+            { 
+                plantState.UpdatePlantTemperature(pot.GetTransformedTemperature(sunIntensity));
+                OnDataChange();
+            }
         }
 
         public void Irrigate()
@@ -110,7 +117,7 @@ namespace Garden
         }
 
         public void OnDataChange()
-        {
+        {            
             if (CheckIfGrowingIsPossible()) UpgradeGrowingPhase();
         }
 
