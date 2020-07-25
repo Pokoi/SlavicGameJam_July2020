@@ -7,12 +7,12 @@ namespace Garden
     {
         [SerializeField] string plantType;
 
-        PlantPot       pot;
+        [SerializeField] PlantPot       pot;
         PlantState     plantState;
 
-        ClockComponent growingClock;
-        ClockComponent irrigationClock;
-        ClockComponent fertilizationClock;
+        [SerializeField] ClockComponent growingClock;
+        [SerializeField] ClockComponent irrigationClock;
+        [SerializeField] ClockComponent fertilizationClock;
 
         bool isReadyToGrow = false;
         string nextGrowingPhase;

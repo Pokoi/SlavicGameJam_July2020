@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be0b56de448ac34090d0ed9cef4a1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsPool: {fileID: 0}
+  plantsPool: {fileID: 855181537}
 --- !u!1 &1900967686
 GameObject:
   m_ObjectHideFlags: 0

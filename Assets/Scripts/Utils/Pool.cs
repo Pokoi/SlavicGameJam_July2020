@@ -12,7 +12,7 @@ namespace Garden
         [SerializeField] GameObject baseElement;
         [SerializeField] int initialSize;
 
-        List<GameObject> elements;
+        List<GameObject> elements = new List<GameObject>();
 
         private void Start()
         {
@@ -48,8 +48,8 @@ namespace Garden
             {
                 GameObject go = Instantiate(baseElement, transform);
                 go.SetActive(false);
-
-                --i;
+                elements.Add(go);
+                ++i;
             }
         }
 
