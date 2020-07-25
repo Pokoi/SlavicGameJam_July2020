@@ -7,17 +7,73 @@ namespace Garden
     public class InformationSystem : MonoBehaviour
     {
 
+        public Texture2D waterCanCursorTexture;
 
-        public void ShowHoverInfo(Delegate.HoverElement hoverElement){
-            if(hoverElement.mouseOver) //If mouse is over que show info
-            {   
-                string name = hoverElement.elementName;
-                switch(name){
-                    case "Plant":
-                    Debug.Log("This is the info about a Plant");
-                    break;
+        private enum CURSOR_STATE { WATERINGCAN, DEFAULT }
+        private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
+        private bool isOverWateringCan = false;
+
+        private bool isOverPlant = false;
+        private Plant currPlant = null;
+
+        public void ShowHoverInfo(Delegate.InformationElement hoverElement)
+        {
+            if (hoverElement.mouseOver) //If mouse is over que show info
+            {
+                if (hoverElement.component is Plant)
+                {
+                    Debug.Log(hoverElement.textToShow);
+                }
+
+            }
+        }
+
+        public void ChangeMouse(Delegate.InformationElement infoElement)
+        {
+            if (infoElement.mouseOver)
+            {
+
+                Texture2D cursortTex = null;
+
+                if (infoElement.component is WateringCan)
+                {
+                    cursortTex = waterCanCursorTexture;
+                    isOverWateringCan = true;
+                    Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
                 }
             }
+
+            else if(currCursorState == CURSOR_STATE.DEFAULT)
+            {
+                isOverWateringCan = false;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            }
+
+        }
+
+
+    public void ElementClicked(Component component){
+        if(component is Plant){
+            //Plant p = (Plant)component;
+            if(currCursorState == CURSOR_STATE.WATERINGCAN)
+                return;
+        }
+        
+    }
+        public void Update()
+        {
+            Debug.Log(currCursorState);
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (isOverWateringCan)
+                    currCursorState = CURSOR_STATE.WATERINGCAN;
+            }
+
+            if (Input.GetMouseButtonDown(1)){
+                currCursorState = CURSOR_STATE.DEFAULT;
+                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            }
+                
         }
     }
 }

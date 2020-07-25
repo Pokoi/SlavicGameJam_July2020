@@ -13,18 +13,17 @@ namespace Garden
         [SerializeField] string functionName;
 
         [HideInInspector]
-        public struct HoverElement{
+        public struct InformationElement{
            public string elementName;
             public bool mouseOver;
+            public string textToShow;
+            public Component component;
         }
+
 
 
         public Delegate()
         { }
-
-        public void SetTarget(GameObject go){
-            target = go;
-        }
 
         /// <summary>
         /// Execute the delegate
@@ -60,7 +59,15 @@ namespace Garden
         /// Execute the delegate
         /// </summary>
         /// <param name="value"></param>
-        public void Run(HoverElement value) => target.SendMessage(functionName, value);
+        public void Run(InformationElement value) => target.SendMessage(functionName, value);
+
+        /// <summary>
+        /// Execute the delegate
+        /// </summary>
+        /// <param name="value"></param>
+        public void Run(Component value) => target.SendMessage(functionName, value);
+
+       
 
 
     }

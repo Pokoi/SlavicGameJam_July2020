@@ -16,6 +16,6 @@ namespace Garden
             //Add the effect to the effectsystem
             SceneSystem.Instance.GetEffectsSystem.AddEffect(wateringCanEffect);
         }
-
+        
     }
 }
