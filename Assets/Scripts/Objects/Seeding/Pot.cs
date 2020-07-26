@@ -11,7 +11,7 @@ namespace Garden
 
         public FertilizationEffect fertilizationEffect;
 
-        private Plant potPlant = null;
+        public Plant potPlant = null;
 
         public Plant GetPotPlant => potPlant;
 
@@ -45,12 +45,13 @@ namespace Garden
 
         private void Start()
         {
-            onHover = transform.GetComponent<OnHover>();            
+            onHover = transform.GetComponent<OnHover>();
         }
 
-        void OnMouseDown(){
+        void OnMouseDown()
+        {
 
-            if (PlayerController.Instance.IsPlanting && PlayerController.Instance.GetPlantType() != null && potPlant == null)
+            if (PlayerController.Instance.IsPlanting  && potPlant == null)
             {
 
                 string plantType = PlayerController.Instance.GetPlantType();
@@ -65,7 +66,8 @@ namespace Garden
 
                 Debug.Log("plantando");
             }
-            else if (PlayerController.Instance.IsUsingFertilizer) {
+            else if (PlayerController.Instance.IsUsingFertilizer)
+            {
                 string fertilizerType = PlayerController.Instance.GetCurrFertilizer();
 
                 fertilizationEffect.Execute(fertilizerType, potPlant);
@@ -73,17 +75,26 @@ namespace Garden
             }
             else if (PlayerController.Instance.IsUsingWaterCan && potPlant != null)
             {
-                wateringCanComponent.GetWateringCanEffect.Execute(potPlant);
+                if (potPlant.gameObject.activeSelf)
+                    wateringCanComponent.GetWateringCanEffect.Execute(potPlant);
             }
-            else if(PlayerController.Instance.IsUsingScissors &&  potPlant != null){
-                PlayerController.Instance.cuttedPlant = potPlant;
-                PlayerController.Instance.IsUsingScissors = false;
-                PlayerController.Instance.IsUsingTrashCan = true;
-                
-                informationSystem.PlantCutted();
+            else if (PlayerController.Instance.IsUsingScissors && potPlant != null)
+            {
+                if (potPlant.gameObject.activeSelf)
+                {
+                    PlayerController.Instance.cuttedPlant = potPlant;
+                    PlayerController.Instance.IsUsingScissors = false;
+                    PlayerController.Instance.IsUsingTrashCan = true;
 
-                Debug.Log("He cortado la plantita");
-                potPlant = null;
+                    informationSystem.PlantCutted();
+
+                    Debug.Log("He cortado la plantita");
+                    // potPlant = null;
+                    potPlant.IsActive = false;
+                    potPlant.transform.parent = plantPool.transform;
+                    potPlant.gameObject.SetActive(false);
+                }
+
             }
 
 

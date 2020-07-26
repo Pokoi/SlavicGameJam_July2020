@@ -53,7 +53,7 @@ namespace Garden
         }
         public void ChangeMouse(Delegate.InformationElement infoElement)
         {
-            if (infoElement.mouseOver && currCursorState==CURSOR_STATE.DEFAULT)
+            if (infoElement.mouseOver)
             {
 
                 if (infoElement.component is WateringCan)
