@@ -11,12 +11,16 @@ namespace Garden
 
         public Texture2D waterCanCursorTexture;
         public Texture2D fertilizationCursorTexture;
+        public Texture2D scissorsCursorTexture;
+        public Texture2D trashCanCursorTexture;
 
-    [HideInInspector]
-        public enum CURSOR_STATE { WATERINGCAN, DEFAULT, FERTILIZATIONMODE }
+        [HideInInspector]
+        public enum CURSOR_STATE { WATERINGCAN, DEFAULT, FERTILIZATIONMODE, SCISSORS, TRASHCAN }
         private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
         private bool isOverWateringCan = false;
         private bool isOverFertilizer = false;
+        private bool isOverScissors = false;
+        private bool isOverTrashCan = false;
 
         //public WateringCan wateringCanComponent;
 
@@ -30,7 +34,7 @@ namespace Garden
             if (hoverElement.mouseOver) //If mouse is over que show info
             {
                 StartCoroutine("FollowingMouse");
-                windowCollision.rectTransform.gameObject.SetActive(true);              
+                windowCollision.rectTransform.gameObject.SetActive(true);
             }
             else
             {
@@ -39,33 +43,55 @@ namespace Garden
             }
             windowCollision.rectTransform.GetComponentInChildren<TextMeshProUGUI>().SetText(hoverElement.textToShow);
         }
+        public void PlantCutted(){
+            currCursorState = CURSOR_STATE.TRASHCAN;
+            isOverWateringCan = false;
+                isOverFertilizer = false;
+                isOverScissors = false;
+                isOverTrashCan = true;
 
+        }
         public void ChangeMouse(Delegate.InformationElement infoElement)
         {
-            if (infoElement.mouseOver)
+            if (infoElement.mouseOver && currCursorState==CURSOR_STATE.DEFAULT)
             {
 
                 if (infoElement.component is WateringCan)
                 {
-                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);
+                    SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                     isOverWateringCan = true;
                 }
-                else if(infoElement.component is FertilizationEffect){
-                    SetCursorImg(fertilizationCursorTexture,CURSOR_STATE.FERTILIZATIONMODE);
+                else if (infoElement.component is FertilizationEffect)
+                {
+                    SetCursorImg(fertilizationCursorTexture, CURSOR_STATE.FERTILIZATIONMODE);
                     isOverFertilizer = true;
+                }
+                else if (infoElement.component is Scissors)
+                {
+                    SetCursorImg(scissorsCursorTexture, CURSOR_STATE.SCISSORS);
+                    isOverScissors = true;
+                }
+                else if (infoElement.component is TrashCan)
+                {
+                    SetCursorImg(trashCanCursorTexture, CURSOR_STATE.TRASHCAN);
+                    isOverTrashCan = true;
                 }
             }
 
-            else if (!PlayerController.Instance.IsUsingWaterCan && !PlayerController.Instance.IsUsingFertilizer)
+            else if (!PlayerController.Instance.IsUsingWaterCan && !PlayerController.Instance.IsUsingFertilizer
+            && !PlayerController.Instance.IsUsingScissors && !PlayerController.Instance.IsUsingTrashCan)
             {
-                SetCursorImg(null,CURSOR_STATE.DEFAULT);
+                SetCursorImg(null, CURSOR_STATE.DEFAULT);
                 isOverWateringCan = false;
                 isOverFertilizer = false;
+                isOverScissors = false;
+                isOverTrashCan = false;
+
             }
 
         }
 
-    
+
         public void SetCursorImg(Texture2D cursortTex, CURSOR_STATE cState)
         {
 
@@ -73,14 +99,15 @@ namespace Garden
             Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
         }
 
-        public void ChangeFertilizationCursor(bool active){
+        public void ChangeFertilizationCursor(bool active)
+        {
             PlayerController.Instance.IsUsingFertilizer = active;
             Texture2D texture = active ? fertilizationCursorTexture : null;
 
-            InformationSystem.CURSOR_STATE cState = active ? 
+            InformationSystem.CURSOR_STATE cState = active ?
                 CURSOR_STATE.FERTILIZATIONMODE : CURSOR_STATE.DEFAULT;
-            
-            SetCursorImg(texture,cState);
+
+            SetCursorImg(texture, cState);
         }
 
         public void ElementClicked(Component component)
@@ -88,51 +115,64 @@ namespace Garden
 
         }
 
+        private void DisableALL(){
+             PlayerController.Instance.IsUsingWaterCan = false;
+                PlayerController.Instance.IsUsingFertilizer = false;
+                PlayerController.Instance.IsUsingScissors = false;
+                PlayerController.Instance.IsUsingTrashCan = false;
+
+                isOverWateringCan = isOverFertilizer =  isOverScissors= isOverTrashCan = false;
+                SetCursorImg(null, CURSOR_STATE.DEFAULT);
+        }
+        public void TrashCanUsed(){
+            DisableALL();
+
+        }
         public void Update()
         {
             Debug.Log(currCursorState);
-            Debug.Log(isOverWateringCan);
             if (Input.GetMouseButtonDown(0))
             {
                 if (isOverWateringCan)
                 {
                     PlayerController.Instance.IsUsingWaterCan = true;
-                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);                   
+                    SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                 }
-                /*else if(isOverFertilizer){
-                    PlayerController.Instance.IsUsingFertilizer = true;
-                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.FERTILIZATIONMODE);
-                }*/
+                else if(isOverScissors){
+                    PlayerController.Instance.IsUsingScissors = true;
+                    SetCursorImg(scissorsCursorTexture,CURSOR_STATE.SCISSORS);
+                }
+                else if(isOverTrashCan){
+                    PlayerController.Instance.IsUsingTrashCan = true;
+                    SetCursorImg(scissorsCursorTexture,CURSOR_STATE.TRASHCAN);
+                }
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                PlayerController.Instance.IsUsingWaterCan = false;
-                PlayerController.Instance.IsUsingFertilizer = false;
+                DisableALL();
 
-                isOverWateringCan = isOverFertilizer = false;
-                SetCursorImg(null,CURSOR_STATE.DEFAULT);
+            }
 
+        }
 
         IEnumerator FollowingMouse()
         {
             while (true)
             {
-                Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);                
-                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);  
+                Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
-
     }
-}
 
 
 
     [Serializable]
     public class WindowCollision
     {
-        Box window = new Box(new Vector2(2048 * 0.5f,  1535 * 0.5f),
+        Box window = new Box(new Vector2(2048 * 0.5f, 1535 * 0.5f),
                                        2048,
                                         1535);
 
@@ -194,7 +234,7 @@ namespace Garden
         /// <returns></returns>
         public Vector2 CalculatePosition(Vector2 mousePosition)
         {
-            mousePosition = new Vector2(mousePosition.x * Screen.width, mousePosition.y * Screen.height); 
+            mousePosition = new Vector2(mousePosition.x * Screen.width, mousePosition.y * Screen.height);
             Box upPosition = new Box(
                                         new Vector2(mousePosition.x, mousePosition.y + margin + rectTransform.rect.height),
                                         rectTransform.rect.width * 2f,
@@ -217,7 +257,7 @@ namespace Garden
                                         new Vector2(mousePosition.x, mousePosition.y - margin - rectTransform.rect.height),
                                         rectTransform.rect.width * 2f,
                                         rectTransform.rect.height * 2f
-                                    );            
+                                    );
 
             if (upPosition.CollidesBox(window)) return upPosition.center;
             if (rightPosition.CollidesBox(window)) return rightPosition.center;
@@ -230,5 +270,4 @@ namespace Garden
     }
 
 
-}
 }
