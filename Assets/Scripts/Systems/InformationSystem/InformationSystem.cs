@@ -191,9 +191,9 @@ namespace Garden
         [Serializable]
     public class WindowCollision
     {
-        Box window = new Box(new Vector2(2048 * 0.5f, 1535 * 0.5f),
-                                       2048,
-                                        1535);
+        Box window = new Box(new Vector2(Screen.width * 0.5f, Screen.height * 0.5f),
+                                        Screen.width,
+                                         Screen.height);
 
         [SerializeField] public RectTransform rectTransform;
         [SerializeField] float margin;

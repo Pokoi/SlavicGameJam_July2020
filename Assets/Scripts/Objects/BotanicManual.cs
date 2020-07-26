@@ -36,12 +36,12 @@ namespace Garden
                                )
         {
             text.SetText(
-                            "Irrigation: this plant requires " + irrigation + " substratum." + "\n" +
-                            "Light: this plant requires " + lightExposition + " sun exposition. " + "\n" +
-                            "Temperature: " + temperature + "ºC. " + "\n" +
-                            "Fertilization: the substratum needs " + fertilization + " fertilizer." + "\n" +
-                            "Fertilizer type: " + fertilizerType + "\n" +
-                            "Growing: Each " + growing + " days." + "\n"
+                            "Irrigation: this plant requires " + irrigation + " substratum." + "\n" + "\n" +
+                            "Light: this plant requires " + lightExposition + " sun exposition. " + "\n" + "\n" +
+                            "Temperature: " + temperature + "ºC. " + "\n" +"\n" + 
+                            "Fertilization: the substratum needs " + fertilization + " fertilizer." + "\n" + "\n" +
+                            "Fertilizer type: " + fertilizerType + "\n" + "\n" +
+                            "Growing: Each " + growing + " days." + "\n" + "\n"
                         );
         }
 
