@@ -9,14 +9,14 @@ namespace Garden
 {
     public class Pool : MonoBehaviour
     {
-        [SerializeField] GameObject baseElement;
+        [SerializeField] GameObject[] plantPrefabs;
         [SerializeField] int initialSize;
 
         List<GameObject> elements = new List<GameObject>();
 
         private void Start()
         {
-            CreateElements(initialSize);
+            CreateElements(initialSize, 0);
         }
 
         /// <summary>
@@ -30,11 +30,16 @@ namespace Garden
             for (; i < elements.Count && elements[i].activeSelf; ++i)
             { }
 
-            if (i >= elements.Count) CreateElements(initialSize);
+            int plantIndex = GetPlantIndex(type);
+
+            if (i >= elements.Count) CreateElements(initialSize, plantIndex);
 
             elements[i].SetActive(true);
+            SpriteRenderer sp = elements[i].GetComponent<SpriteRenderer>();
+            sp = plantPrefabs[plantIndex].GetComponent<SpriteRenderer>();
+
             Plant p = elements[i].GetComponent<Plant>();
-            
+
             p.SetPlantType(type);
             // //Maybe we need to call restart to the plant attributes 
             //p.Start();
@@ -43,17 +48,34 @@ namespace Garden
             return elements[i];
         }
 
+        private int GetPlantIndex(string type)
+        {
+            switch (type)
+            {
+                case "Quintana quinae": return 0;  
+                case "Sutcac siuquis": return 1; 
+                case "Auch auchus": return 2; 
+                case "Triqui tricae": return 3; 
+                case "Alejandro alejandrus": return 4; 
+                case "Siquis siqus": return 5; 
+                case "Moru morus": return 6; 
+                case "Sequa sacus": return 7; 
+
+                default: return -1;
+            }
+        }
+
         /// <summary>
         /// Creates a given number of elements
         /// </summary>
         /// <param name="size"></param>
-        private void CreateElements(int size)
+        private void CreateElements(int size, int typeID)
         {
             int i = 0;
 
             while (i < size)
             {
-                GameObject go = Instantiate(baseElement, transform);
+                GameObject go = Instantiate(plantPrefabs[typeID], transform);
                 go.SetActive(true);
                 go.GetComponent<Plant>().Awake();
                 go.SetActive(false);
@@ -74,5 +96,7 @@ namespace Garden
         }
 
         public List<GameObject> GetElements() => elements;
+
+
     }
 }

@@ -11,7 +11,7 @@ namespace Garden
 
         public FertilizationEffect fertilizationEffect;
 
-        private Plant potPlant = null;
+        public Plant potPlant = null;
 
         public Plant GetPotPlant => potPlant;
 
@@ -51,7 +51,7 @@ namespace Garden
         void OnMouseDown()
         {
 
-            if (PlayerController.Instance.IsPlanting && PlayerController.Instance.GetPlantType() != null && potPlant == null)
+            if (PlayerController.Instance.IsPlanting  && potPlant == null)
             {
 
                 string plantType = PlayerController.Instance.GetPlantType();

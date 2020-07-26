@@ -7,7 +7,6 @@ namespace Garden
     {
 
         public GameObject panel, fertilizer,close;
-        public InformationSystem informationSystem;
         public override void Execute()
         {
 

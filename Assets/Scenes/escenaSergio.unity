@@ -1089,7 +1089,6 @@ MonoBehaviour:
   panel: {fileID: 1060936408}
   fertilizer: {fileID: 388978403}
   close: {fileID: 680463533}
-  informationSystem: {fileID: 0}
 --- !u!4 &169900904
 Transform:
   m_ObjectHideFlags: 0
@@ -5270,8 +5269,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa445f0cc0a5b3408cac11ba2ed7fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseElement: {fileID: 1024371730214717412, guid: bd76339144c3495408621fd37a4643d3,
-    type: 3}
+  plantPrefabs:
+  - {fileID: 2109160400863605014, guid: 32623b030e8e297449f2226f3133e1f5, type: 3}
+  - {fileID: 5727976073064490918, guid: 20132bb8188ee6647867bc22d8a34f60, type: 3}
+  - {fileID: 4432782139452133894, guid: 2e15ff79a302d1841bb653ab5fa4e8d9, type: 3}
+  - {fileID: 0}
+  - {fileID: 3265511201215108037, guid: 372d5ceb477413d4f9d69a0de3ee89b2, type: 3}
+  - {fileID: 4112819899306471804, guid: eebcbea637eb5e3488db608cfffc337d, type: 3}
+  - {fileID: 5234191219728187153, guid: bf8ba2a63efa2ee40930541e7c415d69, type: 3}
+  - {fileID: 7539634038789876745, guid: 7fcb11585d3fd7f41a122b5d0925c079, type: 3}
   initialSize: 8
 --- !u!4 &1308160991
 Transform:
@@ -7468,13 +7474,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fd3a360c235414f918e7cf624591fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterCanCursorTexture: {fileID: 2800000, guid: 415d987bcaaf5b148a97c69ff60a17ba,
+  waterCanCursorTexture: {fileID: 2800000, guid: ed0a35ff58247ae489615e2ec3d91b41,
     type: 3}
-  fertilizationCursorTexture: {fileID: 2800000, guid: ed0a35ff58247ae489615e2ec3d91b41,
+  fertilizationCursorTexture: {fileID: 2800000, guid: 0dfd95fadc42e194da575decac8ae8f9,
     type: 3}
-  scissorsCursorTexture: {fileID: 2800000, guid: 0dfd95fadc42e194da575decac8ae8f9,
+  scissorsCursorTexture: {fileID: 2800000, guid: ed0a35ff58247ae489615e2ec3d91b41,
     type: 3}
-  trashCanCursorTexture: {fileID: 2800000, guid: 415d987bcaaf5b148a97c69ff60a17ba,
+  trashCanCursorTexture: {fileID: 2800000, guid: ed0a35ff58247ae489615e2ec3d91b41,
     type: 3}
   windowCollision:
     rectTransform: {fileID: 0}
