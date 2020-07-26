@@ -66,7 +66,7 @@ namespace Garden
         }
 
         public void RestartPlantState(string type)
-        {
+        {            
             plantState.RestartValues(type);
 
         }

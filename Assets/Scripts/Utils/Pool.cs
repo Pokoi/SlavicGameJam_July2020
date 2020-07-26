@@ -35,8 +35,11 @@ namespace Garden
             if (i >= elements.Count) CreateElements(initialSize, plantIndex);
 
             elements[i].SetActive(true);
+
+            elements[i].GetComponent<Plant>().statesSprites = plantPrefabs[plantIndex].GetComponent<Plant>().statesSprites;
+
             SpriteRenderer sp = elements[i].GetComponent<SpriteRenderer>();
-            sp = plantPrefabs[plantIndex].GetComponent<SpriteRenderer>();
+            sp.sprite = elements[i].GetComponent<Plant>().statesSprites[0];
 
             Plant p = elements[i].GetComponent<Plant>();
 

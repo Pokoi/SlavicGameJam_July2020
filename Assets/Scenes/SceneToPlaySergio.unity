@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementName: Scissors
-  textToShow: 
+  textToShow: With this you can destroy the plants
   delegates:
   - target: {fileID: 2077944408}
     functionName: ShowHoverInfo
@@ -2660,7 +2660,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &680463536
 MonoBehaviour:
@@ -3070,8 +3070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019073, y: -0.0000038147}
-  m_SizeDelta: {x: 171.81497, y: 206.01263}
+  m_AnchoredPosition: {x: -0.000060081, y: 0.000084877014}
+  m_SizeDelta: {x: 232.87442, y: 253.31311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &802805815
 MonoBehaviour:
@@ -3563,8 +3563,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -24.73, y: 55.6}
-  m_SizeDelta: {x: 139.14908, y: 211.14233}
+  m_AnchoredPosition: {x: 22.13, y: 34.51}
+  m_SizeDelta: {x: 232.87424, y: 253.31323}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &875425087
 GameObject:
@@ -3807,8 +3807,6 @@ MonoBehaviour:
   textToShow: A brand new botany manual! In it we can read how take care of each
     plant
   delegates:
-  - target: {fileID: 2077944408}
-    functionName: ShowHoverInfo
   - target: {fileID: 2077944408}
     functionName: ShowHoverInfo
 --- !u!1 &969428789
@@ -8291,7 +8289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSystem:
-    dayInSeconds: 0.1
+    dayInSeconds: 40
   plantManager: {fileID: 2014296785}
 --- !u!4 &2014296784
 Transform:
@@ -8792,8 +8790,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000022888, y: -0.000017166}
-  m_SizeDelta: {x: 171.81491, y: 206.01257}
+  m_AnchoredPosition: {x: -1.74, y: -1.92}
+  m_SizeDelta: {x: 161.33241, y: 228.05319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090773261
 MonoBehaviour:
@@ -8843,12 +8841,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 17
+  m_fontSize: 18
   m_fontSizeBase: 17
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_textAlignment: 257
   m_characterSpacing: 0
@@ -8881,7 +8879,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 28.602913, y: 20.204752, z: 29.7966, w: 12.140083}
+  m_margin: {x: 4.91831, y: 6.8851643, z: 6.1931133, w: 4.926134}
   m_textInfo:
     textComponent: {fileID: 2090773261}
     characterCount: 0
