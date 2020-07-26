@@ -138,16 +138,30 @@ namespace Garden
                 if (isOverWateringCan)
                 {
                     PlayerController.Instance.IsUsingWaterCan = true;
+                    PlayerController.Instance.IsUsingFertilizer = false;
+                    PlayerController.Instance.IsUsingScissors = false;
+                    PlayerController.Instance.IsUsingTrashCan = false;
+
+                    
+
                     SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                 }
                 else if(isOverScissors){
+                    PlayerController.Instance.IsUsingWaterCan = false;
+                    PlayerController.Instance.IsUsingFertilizer = false;
                     PlayerController.Instance.IsUsingScissors = true;
+                    PlayerController.Instance.IsUsingTrashCan = false;
                     SetCursorImg(scissorsCursorTexture,CURSOR_STATE.SCISSORS);
                 }
                 else if(isOverTrashCan){
+                    PlayerController.Instance.IsUsingWaterCan = false;
+                    PlayerController.Instance.IsUsingFertilizer = false;
+                    PlayerController.Instance.IsUsingScissors = false;
                     PlayerController.Instance.IsUsingTrashCan = true;
+
                     SetCursorImg(scissorsCursorTexture,CURSOR_STATE.TRASHCAN);
                 }
+                 isOverWateringCan = isOverFertilizer =  isOverScissors= isOverTrashCan = false;
             }
 
             if (Input.GetMouseButtonDown(1))
