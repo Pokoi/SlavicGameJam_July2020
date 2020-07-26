@@ -17,8 +17,11 @@ namespace Garden
 
         void OnMouseDown(){
             FertilizerHUD(true);
+            PlayerController.Instance.CanInteract = false;
         }
-        public void FertilizerHUD(bool active){
+        public void FertilizerHUD(bool active)
+        {
+            
             panel.SetActive(active);
             fertilizer.SetActive(active);
             close.SetActive(active);
