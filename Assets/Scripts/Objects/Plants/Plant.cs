@@ -11,6 +11,9 @@ namespace Garden
         PlantState     plantState;
         public PlantState GetPlantState => plantState;
 
+        private bool isActive = true;
+        public bool IsActive {get{ return isActive;} set {isActive = value;}}  
+
         [SerializeField] ClockComponent growingClock;
         [SerializeField] ClockComponent irrigationClock;
         [SerializeField] ClockComponent fertilizationClock;

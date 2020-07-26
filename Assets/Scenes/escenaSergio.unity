@@ -666,6 +666,11 @@ PrefabInstance:
       propertyPath: fertilizationEffect
       value: 
       objectReference: {fileID: 169900903}
+    - target: {fileID: 8963843626621305126, guid: fd05fb605aacdca48956613fa9e702d8,
+        type: 3}
+      propertyPath: informationSystem
+      value: 
+      objectReference: {fileID: 2077944409}
     - target: {fileID: 8963843626621305145, guid: fd05fb605aacdca48956613fa9e702d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1430,7 +1435,7 @@ SpriteRenderer:
   m_Size: {x: 27.324455, y: 20.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &242855036
@@ -3227,6 +3232,11 @@ PrefabInstance:
       propertyPath: fertilizationEffect
       value: 
       objectReference: {fileID: 169900903}
+    - target: {fileID: 8963843626621305126, guid: fd05fb605aacdca48956613fa9e702d8,
+        type: 3}
+      propertyPath: informationSystem
+      value: 
+      objectReference: {fileID: 2077944409}
     - target: {fileID: 8963843626621305145, guid: fd05fb605aacdca48956613fa9e702d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5573,7 +5583,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1458107278
@@ -6808,6 +6818,11 @@ PrefabInstance:
       propertyPath: fertilizationEffect
       value: 
       objectReference: {fileID: 169900903}
+    - target: {fileID: 8963843626621305126, guid: fd05fb605aacdca48956613fa9e702d8,
+        type: 3}
+      propertyPath: informationSystem
+      value: 
+      objectReference: {fileID: 2077944409}
     - target: {fileID: 8963843626621305145, guid: fd05fb605aacdca48956613fa9e702d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7458,7 +7473,8 @@ MonoBehaviour:
     type: 3}
   scissorsCursorTexture: {fileID: 2800000, guid: 0dfd95fadc42e194da575decac8ae8f9,
     type: 3}
-  trashCanCursorTexture: {fileID: 0}
+  trashCanCursorTexture: {fileID: 2800000, guid: 415d987bcaaf5b148a97c69ff60a17ba,
+    type: 3}
   windowCollision:
     rectTransform: {fileID: 0}
     margin: 0
@@ -7751,6 +7767,11 @@ PrefabInstance:
       propertyPath: wateringCanComponent
       value: 
       objectReference: {fileID: 1458107281}
+    - target: {fileID: 8963843626621305126, guid: fd05fb605aacdca48956613fa9e702d8,
+        type: 3}
+      propertyPath: informationSystem
+      value: 
+      objectReference: {fileID: 2077944409}
     - target: {fileID: 8963843626621305145, guid: fd05fb605aacdca48956613fa9e702d8,
         type: 3}
       propertyPath: m_LocalPosition.x
