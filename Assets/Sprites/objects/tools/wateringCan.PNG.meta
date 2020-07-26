@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: bcc5fd994a0a95149b5ced21769296d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5468773108562608643
+    second: wateringCan_0
+  - first:
+      213: -4104558771476366446
+    second: wateringCan_1
+  - first:
+      213: -3278349804021708696
+    second: wateringCan_2
+  - first:
+      213: 3686639733296569264
+    second: wateringCan_3
+  - first:
+      213: -6596686685551649917
+    second: wateringCan_4
+  - first:
+      213: 3189482827438957306
+    second: wateringCan_5
+  - first:
+      213: 5022759962469911710
+    second: wateringCan_6
+  - first:
+      213: 792641305402905083
+    second: wateringCan_7
+  - first:
+      213: -1070209839467552187
+    second: wateringCan_8
+  - first:
+      213: -6574726045943670334
+    second: wateringCan_9
+  - first:
+      213: 2679300382082775541
+    second: wateringCan_10
+  - first:
+      213: -6754012749212822988
+    second: wateringCan_11
+  - first:
+      213: -7183897705277337251
+    second: wateringCan_12
+  - first:
+      213: 3241045668023200426
+    second: wateringCan_13
+  - first:
+      213: 1678161882969277399
+    second: wateringCan_14
+  - first:
+      213: 949158386395166740
+    second: wateringCan_15
+  - first:
+      213: 3754171383851594758
+    second: wateringCan_16
+  - first:
+      213: 4288185738542067400
+    second: wateringCan_17
+  - first:
+      213: -1876994567720723372
+    second: wateringCan_18
+  - first:
+      213: -4659124254299643016
+    second: wateringCan_19
+  - first:
+      213: 2718384167693326952
+    second: wateringCan_20
+  - first:
+      213: -3669712241051325432
+    second: wateringCan_21
+  - first:
+      213: 4577902692935164189
+    second: wateringCan_22
+  - first:
+      213: 207892338508192873
+    second: wateringCan_23
+  - first:
+      213: 5313501138238550110
+    second: wateringCan_24
+  - first:
+      213: 1070397069712952944
+    second: wateringCan_25
+  - first:
+      213: 1582169002838162729
+    second: wateringCan_26
+  - first:
+      213: -6946592417895057933
+    second: wateringCan_27
+  - first:
+      213: -6032473594222401969
+    second: wateringCan_28
+  - first:
+      213: -2398643872934116930
+    second: wateringCan_29
+  - first:
+      213: 3293230154816120436
+    second: wateringCan_30
+  - first:
+      213: 8808523805545090163
+    second: wateringCan_31
+  - first:
+      213: 8230576456329414901
+    second: wateringCan_32
+  - first:
+      213: 7879785277765124085
+    second: wateringCan_33
+  - first:
+      213: 3257352487536544022
+    second: wateringCan_34
+  - first:
+      213: 3683481458834789425
+    second: wateringCan_35
+  - first:
+      213: -307388131273405045
+    second: wateringCan_36
+  - first:
+      213: -732818104106613326
+    second: wateringCan_37
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.09969795, y: 0.16666664}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 63, y: 151, z: 2256, w: 1499}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wateringCan_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 124
+        width: 390
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfdbae225d30b14b0800000000000000
+      internalID: -5468773108562608643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
