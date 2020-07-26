@@ -61,12 +61,9 @@ namespace Garden
                     SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                     isOverWateringCan = true;
                 }
-<<<<<<< HEAD
-                else if (infoElement.component is FertilizationEffect) {
-=======
+
                 else if (infoElement.component is FertilizationEffect)
                 {
->>>>>>> 06772413c6530c1b3fedeac03c1fccfc1149e400
                     SetCursorImg(fertilizationCursorTexture, CURSOR_STATE.FERTILIZATIONMODE);
                     isOverFertilizer = true;
                 }
@@ -103,12 +100,8 @@ namespace Garden
             Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
         }
 
-<<<<<<< HEAD
-        public void ChangeFertilizationCursor(bool active) {
-=======
         public void ChangeFertilizationCursor(bool active)
         {
->>>>>>> 06772413c6530c1b3fedeac03c1fccfc1149e400
             PlayerController.Instance.IsUsingFertilizer = active;
             Texture2D texture = active ? fertilizationCursorTexture : null;
 
@@ -145,8 +138,6 @@ namespace Garden
                 {
                     PlayerController.Instance.IsUsingWaterCan = true;
                     SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
-<<<<<<< HEAD
-=======
                 }
                 else if(isOverScissors){
                     PlayerController.Instance.IsUsingScissors = true;
@@ -155,22 +146,14 @@ namespace Garden
                 else if(isOverTrashCan){
                     PlayerController.Instance.IsUsingTrashCan = true;
                     SetCursorImg(scissorsCursorTexture,CURSOR_STATE.TRASHCAN);
->>>>>>> 06772413c6530c1b3fedeac03c1fccfc1149e400
                 }
             }
 
             if (Input.GetMouseButtonDown(1))
             {
                 DisableALL();
-
-<<<<<<< HEAD
-                isOverWateringCan = isOverFertilizer = false;
-                SetCursorImg(null, CURSOR_STATE.DEFAULT);
-            }
-=======
             }
 
->>>>>>> 06772413c6530c1b3fedeac03c1fccfc1149e400
         }
 
         IEnumerator FollowingMouse()
@@ -178,15 +161,16 @@ namespace Garden
             while (true)
             {
                 Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);
+                Vector2 newPosition = windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y));
+
+                if (newPosition != Vector2.negativeInfinity)
+                { 
+                    windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, newPosition, UnityEngine.Time.deltaTime);
+                }
                 yield return new WaitForEndOfFrame();
             }
         }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 06772413c6530c1b3fedeac03c1fccfc1149e400
 
 
         [Serializable]

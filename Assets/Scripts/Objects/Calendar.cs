@@ -22,7 +22,7 @@ namespace Garden
         private void Start()
         {
             dayCount = 20;
-            monthCount = 6;
+            monthCount = 5;
 
             firstNumber.sprite = (int)(dayCount * 0.1f) == 0 ? null : numbers[(int)(dayCount * 0.1f)];
             secondNumber.sprite = numbers[(int)dayCount % 10];
@@ -36,13 +36,13 @@ namespace Garden
         {
             dayCount++;
 
-            if (dayCount > months[monthCount].days)
+            if (dayCount> months[monthCount].days)
             {
                 ChangeMonth();
             }
 
             firstNumber.sprite = (int) (dayCount * 0.1f)  == 0 ? null : numbers[(int) (dayCount * 0.1f)];
-            secondNumber.sprite = numbers[(int)dayCount % 10];
+            secondNumber.sprite = numbers[((int)dayCount % 10) ];
         }
 
         public void ChangeMonth()
@@ -56,7 +56,7 @@ namespace Garden
 
             monthImage.sprite = months[monthCount].header;
 
-            dayCount = 0;
+            dayCount = 1;
         }
 
     }
