@@ -44,7 +44,8 @@ namespace Garden
             windowCollision.rectTransform.GetComponentInChildren<TextMeshProUGUI>().SetText(hoverElement.textToShow);
         }
         public void PlantCutted(){
-            currCursorState = CURSOR_STATE.TRASHCAN;
+            SetCursorImg(trashCanCursorTexture, CURSOR_STATE.TRASHCAN);
+            PlayerController.Instance.IsUsingTrashCan = true;
             isOverWateringCan = false;
                 isOverFertilizer = false;
                 isOverScissors = false;

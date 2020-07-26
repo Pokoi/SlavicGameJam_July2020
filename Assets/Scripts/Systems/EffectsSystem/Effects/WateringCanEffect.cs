@@ -4,9 +4,11 @@ using UnityEngine;
 namespace Garden{
 public class WateringCanEffect : Effect
 {
-    private WateringCan wateringCan;
-        public WateringCanEffect(WateringCan wateringCan){
-            this.wateringCan = wateringCan;
+    public WateringCan wateringCan;
+    private AudioSource audioSource;
+
+        void Start(){
+            audioSource = GetComponent<AudioSource>();
         }
          public override void Execute()
          {
@@ -15,6 +17,7 @@ public class WateringCanEffect : Effect
 
         public void Execute(Plant plantToIrrigate)
         {
+            audioSource.Play();
             plantToIrrigate.Irrigate();
         }
 }

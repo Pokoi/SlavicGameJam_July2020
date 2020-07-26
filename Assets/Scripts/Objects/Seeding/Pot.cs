@@ -24,6 +24,8 @@ namespace Garden
 
         public InformationSystem informationSystem;
 
+        private AudioSource audioSource;
+
         public string GetLightExposition() => lightExposition.ToString();
 
         /// <summary>
@@ -46,6 +48,7 @@ namespace Garden
         private void Start()
         {
             onHover = transform.GetComponent<OnHover>();
+            audioSource = transform.GetComponent<AudioSource>();
         }
 
         void OnMouseDown()
@@ -62,6 +65,8 @@ namespace Garden
                 potPlant = plantGO.GetComponent<Plant>();
                 potPlant.SetPot(this);
                 potPlant.Awake();
+
+                audioSource.Play();
 
                 PlayerController.Instance.IsPlanting = false;
 
@@ -94,6 +99,7 @@ namespace Garden
                     potPlant.IsActive = false;
                     potPlant.transform.parent = plantPool.transform;
                     potPlant.gameObject.SetActive(false);
+                    potPlant = null;
                 }
 
             }
