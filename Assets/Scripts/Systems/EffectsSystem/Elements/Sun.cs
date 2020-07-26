@@ -13,6 +13,12 @@ namespace Garden
         public float GetCurrentSun => currentSun;
         private SunEffect sunEffect;
 
+        [SerializeField] Sprite summerBanner;
+        [SerializeField] Sprite fallBanner;
+        [SerializeField] Sprite winterBanner;
+        [SerializeField] Sprite springBanner;
+        [SerializeField] SpriteRenderer seasonBanner;
+
         /// <summary>
         /// A struct with the data about the season heat changes
         /// </summary>
@@ -64,6 +70,14 @@ namespace Garden
         public void SeasonChanged(string season)
         {
             currentSeason = season;
+            switch (currentSeason)
+            {
+                case "summer": seasonBanner.sprite = summerBanner; break;
+                case "fall": seasonBanner.sprite = fallBanner; break;
+                case "winter": seasonBanner.sprite = winterBanner; break;
+                case "spring": seasonBanner.sprite = springBanner; break;
+            }
+
             UpdateTemperature();
         }
 

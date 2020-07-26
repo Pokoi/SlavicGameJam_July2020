@@ -40,7 +40,10 @@ namespace Garden
 
         private void Start()
         {
-            stateIndex = UnityEngine.Random.Range(0, states.Length);
+            if (name != "SeasonClock")
+            { 
+                stateIndex = UnityEngine.Random.Range(0, states.Length);            
+            }
             playing = true;
 
             if (name == "")

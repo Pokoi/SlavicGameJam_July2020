@@ -59,9 +59,9 @@ namespace Garden
 
         private void InitializeStandards()
         {
-            randomStandards.temperatureMin  = new PlantState.InitializationList.Range (10, 20);
-            randomStandards.temperatureMax  = new PlantState.InitializationList.Range(10, 20); ;
-            randomStandards.growingRate     = new PlantState.InitializationList.Range(20, 35); ;
+            randomStandards.temperatureMin  = new PlantState.InitializationList.Range (10, 18);
+            randomStandards.temperatureMax  = new PlantState.InitializationList.Range(20, 30); ;
+            randomStandards.growingRate     = new PlantState.InitializationList.Range(10, 35); ;
 
             randomStandards.floweringPossibleValues       = new string[] { "summer", "fall", "winter", "spring"};
             randomStandards.irrigationPossibleValues      = new string[] { "puddled", "wet", "damp", "dry" }; 
@@ -120,7 +120,7 @@ namespace Garden
         {
             PlantState.InitializationList initializationList = new PlantState.InitializationList();
 
-            initializationList.temperature.min = UnityEngine.Random.Range( randomStandards.temperatureMin.min, randomStandards.temperatureMin.max);
+            initializationList.temperature.min = UnityEngine.Random.Range( randomStandards.temperatureMin.min, randomStandards.temperatureMin.max);            
             initializationList.temperature.max = UnityEngine.Random.Range( randomStandards.temperatureMax.min, randomStandards.temperatureMax.max);
 
             initializationList.flowering = randomStandards.floweringPossibleValues[UnityEngine.Random.Range(0, randomStandards.floweringPossibleValues.Length)];

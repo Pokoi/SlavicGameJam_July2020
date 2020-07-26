@@ -53,7 +53,7 @@ namespace Garden
         }
         public void ChangeMouse(Delegate.InformationElement infoElement)
         {
-            if (infoElement.mouseOver)
+            if (infoElement.mouseOver && PlayerController.Instance.CanInteract)
             {
 
                 if (infoElement.component is WateringCan)

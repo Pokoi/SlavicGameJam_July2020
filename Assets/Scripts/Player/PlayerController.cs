@@ -26,6 +26,10 @@ namespace Garden
         private bool usingTrashCan = false;
         public bool IsUsingTrashCan { get { return usingTrashCan; } set { usingTrashCan = value; } }
 
+        private bool canInteract = true;
+        public bool CanInteract { get { return canInteract; } set { canInteract = value; } }
+
+
         [HideInInspector]
         public Plant cuttedPlant = null;
 
@@ -83,6 +87,8 @@ namespace Garden
             usingWaterCan = false;
         }
 
+        
+       
 
     }
 }

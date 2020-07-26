@@ -53,10 +53,13 @@ namespace Garden
 
         public PlantState(string type)
         {
+            plantType = type;
             desiredValues = PlantGenerator.Get.GetPlantValues(type);
         }
 
-        public void RestartValues(string type){ 
+        public void RestartValues(string type)
+        {
+            plantType = type;
             desiredValues = PlantGenerator.Get.GetPlantValues(type);
         }
 

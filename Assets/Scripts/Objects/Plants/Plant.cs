@@ -46,8 +46,10 @@ namespace Garden
     
         public void Awake()
         {
+            if (plantState == null) plantState = new PlantState(plantType);
 
-            plantState = new PlantState(plantType);
+            plantState.Grow("seeds");
+
             //Initialize clocks
             irrigationClock.SetTicks(plantState.GetDesiredValues().irrigationRate / irrigationClock.GetStates().Length);
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
@@ -81,6 +83,8 @@ namespace Garden
 
         public void Atemperate(float sunIntensity)
         {
+            if (plantState == null) plantState = new PlantState(plantType);
+
             if (pot != null)
             {
                 plantState.UpdatePlantTemperature(pot.GetTransformedTemperature(sunIntensity));
@@ -91,43 +95,60 @@ namespace Garden
         public void Irrigate()
         {
             Debug.Log("He regado esta planta ");
+            if (plantState == null) plantState = new PlantState(plantType);
+
             irrigationClock.ChangeState(-1);
             irrigationClock.Reset();
-            plantState.UpdateIrrigationState(irrigationClock.GetCurrentState());
+            plantState.UpdateIrrigationState(irrigationClock.GetCurrentState());            
+           
         }
 
         public void UpdateIrrigationStats(string state)
         {
+            if (plantState == null) plantState = new PlantState(plantType);
+
             plantState.UpdateIrrigationState(state);
             OnDataChange();
+            
         }
 
         public void UpdateFertilizationStats(string state)
         {
+            if (plantState == null) plantState = new PlantState(plantType);
+            
             plantState.UpdateFertilizationState(state);
             OnDataChange();
+            
         }
 
 
         public void Fertilizate(string fertilizationType)
         {
-            Debug.Log("He fertilizado.");
+            if (plantState == null) plantState = new PlantState(plantType);
+            
             if (fertilizationType == plantState.GetDesiredValues().fertilizationType)
             {
-                fertilizationClock.ChangeState(-1);
-                fertilizationClock.Reset();
-                plantState.UpdateFertilizationState(fertilizationClock.GetCurrentState());
+                    fertilizationClock.ChangeState(-1);
+                    fertilizationClock.Reset();
+                    plantState.UpdateFertilizationState(fertilizationClock.GetCurrentState());
             }
+            
         }
 
-        public bool CheckIfGrowingIsPossible() => isReadyToGrow && plantState.SatisfyStats();
+        public bool CheckIfGrowingIsPossible()
+        {
+            if (plantState == null) plantState = new PlantState(plantType);
+
+            return isReadyToGrow && plantState.SatisfyStats();           
+
+        }  
+        
 
 
         public void UpgradeGrowingPhase()
         {
             if (growingPhase < 3)
-            {
-                
+            {                
                 growingPhase++;
                 spriteRenderer.sprite = statesSprites[growingPhase];
                 isReadyToGrow = false;
@@ -147,6 +168,7 @@ namespace Garden
         {
             plantType = type;
         }
+
         public string GetPlantType()
         {
             return plantType;

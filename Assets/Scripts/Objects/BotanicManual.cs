@@ -50,6 +50,7 @@ namespace Garden
             canvasPanel.SetActive(true);
             canvasBotanicBook.SetActive(true);
             canvasXButton.SetActive(true);
+            PlayerController.Instance.CanInteract = false;
         }
 
     }

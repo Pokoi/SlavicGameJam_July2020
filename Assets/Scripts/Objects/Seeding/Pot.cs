@@ -61,6 +61,7 @@ namespace Garden
                 plantGO.transform.position = plantPivot.position;
                 potPlant = plantGO.GetComponent<Plant>();
                 potPlant.SetPot(this);
+                potPlant.Awake();
 
                 PlayerController.Instance.IsPlanting = false;
 

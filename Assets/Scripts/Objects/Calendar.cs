@@ -49,7 +49,7 @@ namespace Garden
         {
             ++monthCount;
 
-            if (monthCount > months.Length)
+            if (monthCount >= months.Length)
             {
                 monthCount = 0;
             }

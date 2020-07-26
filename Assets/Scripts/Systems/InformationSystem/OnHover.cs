@@ -43,9 +43,13 @@ namespace Garden
             {
                 currComponent = botanicManual;
             }
+            else if (TryGetComponent(out Seed seed))
+            {
+                currComponent = seed;
+            }
 
 
-            if(TryGetComponent(out Pot pot))
+            if (TryGetComponent(out Pot pot))
             {
                 this.pot = pot;
             }
@@ -53,18 +57,20 @@ namespace Garden
 
         void OnMouseOver()
         {
- 
+            if (PlayerController.Instance.CanInteract)
+            {
+
                 //Information popup
                 Delegate.InformationElement hElement;
                 hElement.elementName = elementName;
-                hElement.mouseOver = true;               
-                
+                hElement.mouseOver = true;
+
                 if (pot)
                 {
                     hElement.textToShow = pot.GetTextInfo();
                 }
                 else
-                { 
+                {
                     hElement.textToShow = textToShow;
                 }
 
@@ -73,9 +79,9 @@ namespace Garden
                 delegates[0].Run(hElement);
 
                 ///////////
-            
+
                 //Cursor delegate
-                
+
                 Delegate.InformationElement hCursor;
                 hCursor.elementName = elementName;
                 hCursor.mouseOver = true;
@@ -84,14 +90,14 @@ namespace Garden
 
                 hCursor.component = currComponent;
                 if (delegates.Length > 1 && delegates[1] != null)
-                { 
+                {
                     delegates[1].Run(hCursor);
                 }
+            }
             
         }
         void OnMouseExit()
         {
-            
                 //Information popout
                 Delegate.InformationElement hElement;
                 hElement.elementName = elementName;
@@ -110,20 +116,25 @@ namespace Garden
                 hCursor.mouseOver = false;
                 hCursor.textToShow = "";
 
-              
+
                 hCursor.component = currComponent;
                 if (delegates.Length > 1 && delegates[1] != null)
                 {
                     delegates[1].Run(hCursor);
-                }
+                }            
 
         }
 
         void OnMouseDown()
         {
-            if (delegates.Length > 2 && delegates[2] != null)
+            if (PlayerController.Instance.CanInteract)
             {
-                delegates[2].Run(currComponent);
+
+                if (delegates.Length > 2 && delegates[2] != null)
+                {
+                    delegates[2].Run(currComponent);
+                }
+
             }
             
         }

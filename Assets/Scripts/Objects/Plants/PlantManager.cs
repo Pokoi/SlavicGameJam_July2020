@@ -29,7 +29,7 @@ namespace Garden
         private void UpdateText(string name)
         {
             PlantState.InitializationList initializationList;
-            initializationList = PlantGenerator.Get.GetPlantValues("name");
+            initializationList = PlantGenerator.Get.GetPlantValues(name);
 
             botanicManual.UpdateText(
                                       botanicManual.GetTextAt(PlantGenerator.Get.GetIndexOfPlantType(name)),
