@@ -107,6 +107,7 @@ namespace Garden
         {
             if (plantState == null) plantState = new PlantState(plantType);
 
+            
             plantState.UpdateIrrigationState(state);
             OnDataChange();
             
