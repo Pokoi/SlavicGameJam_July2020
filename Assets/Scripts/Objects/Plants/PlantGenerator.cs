@@ -45,6 +45,8 @@ namespace Garden
                 return instance;
             }
         }
+
+        public int GetIndexOfPlantType(string type) => plantTypes.IndexOf(type);
         
         private PlantGenerator()
         {
@@ -68,7 +70,18 @@ namespace Garden
             randomStandards.fertilizationTypes            = new string[] { "flower", "minerals", "organic", "universal" };
 
             randomStandards.irrigationRateRange     = new PlantState.InitializationList.Range(2, 20);
-            randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120);           
+            randomStandards.fertilizationRateRange  = new PlantState.InitializationList.Range(30, 120);
+
+            PlantState.InitializationList initializationList;
+
+            initializationList = GetPlantValues("Quintana quinae");
+            initializationList = GetPlantValues("Sutcac siuquis");
+            initializationList = GetPlantValues("Auch auchus");
+            initializationList = GetPlantValues("Triqui tricae");
+            initializationList = GetPlantValues("Alejandro alejandrus");
+            initializationList = GetPlantValues("Siquis siqus");
+            initializationList = GetPlantValues("Moru morus");
+            initializationList = GetPlantValues("Sequa sacus");
 
         }
 
@@ -93,8 +106,8 @@ namespace Garden
                 plantTypes.Add(name);
                 return initializationLists[plantTypes.Count - 1];
             }
-
-            return initializationLists[i];
+            int poajsdf = GetIndexOfPlantType(name);
+            return initializationLists[poajsdf];
 
         }
 
@@ -121,7 +134,7 @@ namespace Garden
             initializationList.fertilizationType = randomStandards.fertilizationTypes[UnityEngine.Random.Range(0, randomStandards.fertilizationTypes.Length)];
 
             initializationList.irrigationIdealStatus = randomStandards.irrigationPossibleValues[UnityEngine.Random.Range(0, randomStandards.irrigationPossibleValues.Length)];
-            initializationList.fertilizationIdealStatus = randomStandards.fertilizationTypes[UnityEngine.Random.Range(0, randomStandards.fertilizationTypes.Length)]; ;
+            initializationList.fertilizationIdealStatus = randomStandards.fertilizationPossibleValues[UnityEngine.Random.Range(0, randomStandards.fertilizationPossibleValues.Length)]; ;
 
             return initializationList;
 

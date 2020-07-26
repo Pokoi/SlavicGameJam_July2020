@@ -1,7 +1,46 @@
 fileFormatVersion: 2
 guid: 388172d7191c5f849954529bc23cdee7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4994094117081700290
+    second: d_0_0
+  - first:
+      213: -9000133460394958375
+    second: d_0_1
+  - first:
+      213: -2854906515999025056
+    second: d_0_2
+  - first:
+      213: 1444969916418381299
+    second: d_0_3
+  - first:
+      213: 5519190652161543559
+    second: d_0_4
+  - first:
+      213: 8869574892566473182
+    second: d_0_5
+  - first:
+      213: 6699211517505269618
+    second: d_0_6
+  - first:
+      213: 5958991603510313110
+    second: d_0_7
+  - first:
+      213: 894605047871257495
+    second: d_0_8
+  - first:
+      213: 1168310408740874807
+    second: d_0_9
+  - first:
+      213: -6216624662762299897
+    second: d_0_10
+  - first:
+      213: 7914524146647967278
+    second: d_0_11
+  - first:
+      213: -5259633897939530263
+    second: d_0_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -97,11 +136,74 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: d_0_0
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 305
+        width: 123
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c7d58fb3269e4540800000000000000
+      internalID: 4994094117081700290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_0_1
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 308
+        width: 131
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d12d027d4a191380800000000000000
+      internalID: -9000133460394958375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_0_3
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 322
+        width: 119
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f55e33bb709d0410800000000000000
+      internalID: 1444969916418381299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 98aefa46f8a914a46bf39145917ec9f0
     internalID: 0
     vertices: []
     indices: 

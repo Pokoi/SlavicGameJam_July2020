@@ -38,6 +38,7 @@ namespace Garden
 
             public string irrigationIdealStatus;
             public string fertilizationIdealStatus;
+
         }
 
         InitializationList desiredValues;

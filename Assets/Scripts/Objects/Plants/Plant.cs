@@ -121,8 +121,6 @@ namespace Garden
             if (CheckIfGrowingIsPossible()) UpgradeGrowingPhase();
         }
 
-       
-
         public void SetPlantType(string type){
             plantType = type;
         }

@@ -20,20 +20,28 @@ namespace Garden
         Pot pot;
 
         void Start(){
-            if(TryGetComponent(out WateringCan wCan))
-                currComponent = wCan;
 
-            else if(TryGetComponent(out Plant plant)){
+            if (TryGetComponent(out WateringCan wCan))
+                currComponent = wCan;
+            else if (TryGetComponent(out Plant plant))
+            {
                 currComponent = plant;
             }
-            else if(TryGetComponent(out FertilizationEffect fertEffect)){
-                 currComponent = fertEffect;
+            else if (TryGetComponent(out FertilizationEffect fertEffect))
+            {
+                currComponent = fertEffect;
             }
-            else if(TryGetComponent(out Scissors scissors)){
-                 currComponent = scissors;
+            else if (TryGetComponent(out Scissors scissors))
+            {
+                currComponent = scissors;
             }
-            else if(TryGetComponent(out TrashCan trashCan)){
-                 currComponent = trashCan;
+            else if (TryGetComponent(out TrashCan trashCan))
+            {
+                currComponent = trashCan;
+            }
+            else if (TryGetComponent(out BotanicManual botanicManual))
+            {
+                currComponent = botanicManual;
             }
 
 
