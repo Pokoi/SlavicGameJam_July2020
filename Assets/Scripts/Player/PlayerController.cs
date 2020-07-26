@@ -20,6 +20,15 @@ namespace Garden
         private bool usingWaterCan = false;
         public bool IsUsingWaterCan { get { return usingWaterCan; } set { usingWaterCan = value; } }
 
+        private bool usingScissors = false;
+        public bool IsUsingScissors { get { return usingScissors; } set { usingScissors = value; } }
+
+        private bool usingTrashCan = false;
+        public bool IsUsingTrashCan { get { return usingTrashCan; } set { usingTrashCan = value; } }
+
+        [HideInInspector]
+        public Plant cuttedPlant = null;
+
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -44,6 +53,7 @@ namespace Garden
 
         void Update()
         {
+
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 planting = true;

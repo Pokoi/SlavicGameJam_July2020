@@ -22,6 +22,8 @@ namespace Garden
         public enum LightExpositions { direct, indirect }
         [SerializeField] LightExpositions lightExposition;
 
+        public InformationSystem informationSystem;
+
         public string GetLightExposition() => lightExposition.ToString();
 
         /// <summary>
@@ -72,6 +74,16 @@ namespace Garden
             else if (PlayerController.Instance.IsUsingWaterCan && potPlant != null)
             {
                 wateringCanComponent.GetWateringCanEffect.Execute(potPlant);
+            }
+            else if(PlayerController.Instance.IsUsingScissors &&  potPlant != null){
+                PlayerController.Instance.cuttedPlant = potPlant;
+                PlayerController.Instance.IsUsingScissors = false;
+                PlayerController.Instance.IsUsingTrashCan = true;
+                
+                informationSystem.PlantCutted();
+
+                Debug.Log("He cortado la plantita");
+                potPlant = null;
             }
 
 
