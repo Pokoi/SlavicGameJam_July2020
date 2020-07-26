@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1024371730214717412
+--- !u!1 &4432782139452133894
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,54 +8,59 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6805149033335078531}
-  - component: {fileID: 2585623496214515937}
-  - component: {fileID: 8468735891510337241}
+  - component: {fileID: 7909329792315206497}
+  - component: {fileID: 1176232977065968899}
+  - component: {fileID: 5059184070303943483}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: C_Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6805149033335078531
+--- !u!4 &7909329792315206497
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024371730214717412}
+  m_GameObject: {fileID: 4432782139452133894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7186848110856441829}
+  - {fileID: 5769105833469286919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2585623496214515937
+--- !u!114 &1176232977065968899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024371730214717412}
+  m_GameObject: {fileID: 4432782139452133894}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a98f765344bf7b344afc0125d8a99f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plantType: 
-  growingClock: {fileID: 1505351691539829916}
-  irrigationClock: {fileID: 4353443820586302055}
-  fertilizationClock: {fileID: 2981723327401523594}
---- !u!212 &8468735891510337241
+  growingClock: {fileID: 2834802749187080574}
+  irrigationClock: {fileID: 1142121419143999365}
+  fertilizationClock: {fileID: 1932641165326707816}
+  growingPhase: 0
+  statesSprites:
+  - {fileID: -7561502678621312950, guid: b6fe1241d305a2743b000fdac62d370d, type: 3}
+  - {fileID: 2870292926603861676, guid: 8f44be0dca6c4b44b844d87b2fad1e21, type: 3}
+  - {fileID: -9009779021399100967, guid: 122c9d6bb9cce6647bcc51d80d05d15b, type: 3}
+--- !u!212 &5059184070303943483
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1024371730214717412}
+  m_GameObject: {fileID: 4432782139452133894}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,9 +92,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 9029097915078336210, guid: d5a4e096872bd4c4eb1915598815cf9d,
-    type: 3}
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,10 +101,10 @@ SpriteRenderer:
   m_Size: {x: 0.8301354, y: 1.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5712427369907723463
+--- !u!1 &7002441285154069267
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,52 +112,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6461049159287462669}
-  - component: {fileID: 1505351691539829916}
+  - component: {fileID: 3790175279750610176}
+  - component: {fileID: 1932641165326707816}
   m_Layer: 0
-  m_Name: Growing Clock
+  m_Name: Fertilization Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6461049159287462669
+--- !u!4 &3790175279750610176
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712427369907723463}
+  m_GameObject: {fileID: 7002441285154069267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7186848110856441829}
-  m_RootOrder: 0
+  m_Father: {fileID: 5769105833469286919}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1505351691539829916
+--- !u!114 &1932641165326707816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5712427369907723463}
+  m_GameObject: {fileID: 7002441285154069267}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fdf8cfe28d16964ea61982db6c30485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: GrowingClock
+  name: FertilizationClock
   states:
-  - seed
-  - sprout
-  - mature
+  - excess
+  - moderate
+  - scarce
   ticks: 0
   circularFlow: 0
   delegates:
-  - target: {fileID: 1024371730214717412}
-    functionName: ReadyToGrow
---- !u!1 &5759515132558483644
+  - target: {fileID: 4432782139452133894}
+    functionName: UpdateFertilizationStats
+--- !u!1 &7732121005600514815
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,8 +165,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5069342918484174821}
-  - component: {fileID: 4353443820586302055}
+  - component: {fileID: 5769105833469286919}
+  m_Layer: 0
+  m_Name: Clocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5769105833469286919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732121005600514815}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7645258998717959919}
+  - {fileID: 8496823486520439303}
+  - {fileID: 3790175279750610176}
+  m_Father: {fileID: 7909329792315206497}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8961814750048138590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8496823486520439303}
+  - component: {fileID: 1142121419143999365}
   m_Layer: 0
   m_Name: Irrigation Clock
   m_TagString: Untagged
@@ -170,27 +207,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5069342918484174821
+--- !u!4 &8496823486520439303
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759515132558483644}
+  m_GameObject: {fileID: 8961814750048138590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7186848110856441829}
+  m_Father: {fileID: 5769105833469286919}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4353443820586302055
+--- !u!114 &1142121419143999365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5759515132558483644}
+  m_GameObject: {fileID: 8961814750048138590}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fdf8cfe28d16964ea61982db6c30485, type: 3}
@@ -205,9 +242,9 @@ MonoBehaviour:
   ticks: 0
   circularFlow: 0
   delegates:
-  - target: {fileID: 1024371730214717412}
+  - target: {fileID: 4432782139452133894}
     functionName: UpdateIrrigationStats
---- !u!1 &5953336806034919153
+--- !u!1 &9004302155976968485
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,81 +252,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 516298920861329634}
-  - component: {fileID: 2981723327401523594}
+  - component: {fileID: 7645258998717959919}
+  - component: {fileID: 2834802749187080574}
   m_Layer: 0
-  m_Name: Fertilization Clock
+  m_Name: Growing Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &516298920861329634
+--- !u!4 &7645258998717959919
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953336806034919153}
+  m_GameObject: {fileID: 9004302155976968485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7186848110856441829}
-  m_RootOrder: 2
+  m_Father: {fileID: 5769105833469286919}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2981723327401523594
+--- !u!114 &2834802749187080574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953336806034919153}
+  m_GameObject: {fileID: 9004302155976968485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fdf8cfe28d16964ea61982db6c30485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: FertilizationClock
+  name: GrowingClock
   states:
-  - excess
-  - moderate
-  - scarce
+  - seed
+  - sprout
+  - mature
   ticks: 0
   circularFlow: 0
   delegates:
-  - target: {fileID: 1024371730214717412}
-    functionName: UpdateFertilizationStats
---- !u!1 &6412325843518666525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7186848110856441829}
-  m_Layer: 0
-  m_Name: Clocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7186848110856441829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6412325843518666525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6461049159287462669}
-  - {fileID: 5069342918484174821}
-  - {fileID: 516298920861329634}
-  m_Father: {fileID: 6805149033335078531}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  - target: {fileID: 4432782139452133894}
+    functionName: ReadyToGrow

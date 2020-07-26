@@ -5,18 +5,23 @@ namespace Garden
 {
     public class Plant : MonoBehaviour
     {
+        
         [SerializeField] string plantType;
 
         Pot pot;
-        PlantState     plantState;
+        PlantState plantState;
         public PlantState GetPlantState => plantState;
 
         private bool isActive = true;
-        public bool IsActive {get{ return isActive;} set {isActive = value;}}  
+        public bool IsActive { get { return isActive; } set { isActive = value; } }
 
         [SerializeField] ClockComponent growingClock;
         [SerializeField] ClockComponent irrigationClock;
         [SerializeField] ClockComponent fertilizationClock;
+
+        public int growingPhase = 0;
+        public Sprite[] statesSprites = new Sprite[3];
+        private SpriteRenderer spriteRenderer;
 
         bool isReadyToGrow = false;
         string nextGrowingPhase;
@@ -32,15 +37,15 @@ namespace Garden
         /// </summary>
         /// <param name="newPot"></param>
         public void SetPot(Pot newPot)
-        { 
+        {
             pot = newPot;
             plantState.UpdateLightExposition(pot.GetLightExposition());
-        
-        } 
 
+        }
 
+    
         public void Awake()
-        {           
+        {
 
             plantState = new PlantState(plantType);
             //Initialize clocks
@@ -48,14 +53,20 @@ namespace Garden
             fertilizationClock.SetTicks(plantState.GetDesiredValues().fertilizationRate / fertilizationClock.GetStates().Length);
             growingClock.SetTicks(plantState.GetDesiredValues().growingRate / growingClock.GetStates().Length);
 
-             irrigationClock.SetName("IrrigationClock" + GetInstanceID());
-             fertilizationClock.SetName("FertilizationClock" + GetInstanceID());
-             growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
+            irrigationClock.SetName("IrrigationClock" + GetInstanceID());
+            fertilizationClock.SetName("FertilizationClock" + GetInstanceID());
+            growingClock.SetName("GrowingClock" + growingClock.gameObject.GetInstanceID());
         }
 
-        public void RestartPlantState(string type){
+        void Start(){
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = statesSprites[0];
+        }
+
+        public void RestartPlantState(string type)
+        {
             plantState.RestartValues(type);
-           
+
         }
 
         public void ReadyToGrow(string growingState)
@@ -71,7 +82,7 @@ namespace Garden
         public void Atemperate(float sunIntensity)
         {
             if (pot != null)
-            { 
+            {
                 plantState.UpdatePlantTemperature(pot.GetTransformedTemperature(sunIntensity));
                 OnDataChange();
             }
@@ -86,23 +97,23 @@ namespace Garden
         }
 
         public void UpdateIrrigationStats(string state)
-        { 
+        {
             plantState.UpdateIrrigationState(state);
             OnDataChange();
         }
 
         public void UpdateFertilizationStats(string state)
-        { 
+        {
             plantState.UpdateFertilizationState(state);
             OnDataChange();
-        }       
+        }
 
 
         public void Fertilizate(string fertilizationType)
         {
             Debug.Log("He fertilizado.");
             if (fertilizationType == plantState.GetDesiredValues().fertilizationType)
-            { 
+            {
                 fertilizationClock.ChangeState(-1);
                 fertilizationClock.Reset();
                 plantState.UpdateFertilizationState(fertilizationClock.GetCurrentState());
@@ -110,26 +121,34 @@ namespace Garden
         }
 
         public bool CheckIfGrowingIsPossible() => isReadyToGrow && plantState.SatisfyStats();
-      
+
 
         public void UpgradeGrowingPhase()
         {
-            isReadyToGrow = false;
-            plantState.Grow(nextGrowingPhase);            
-            growingClock.Resume();
+            if (growingPhase < 3)
+            {
+                
+                growingPhase++;
+                spriteRenderer.sprite = statesSprites[growingPhase];
+                isReadyToGrow = false;
+                plantState.Grow(nextGrowingPhase);                
+                growingClock.Resume();
+            }
         }
 
         public void OnDataChange()
-        {            
+        {
             if (CheckIfGrowingIsPossible()) UpgradeGrowingPhase();
         }
 
-       
 
-        public void SetPlantType(string type){
+
+        public void SetPlantType(string type)
+        {
             plantType = type;
         }
-        public string GetPlantType(){
+        public string GetPlantType()
+        {
             return plantType;
         }
     }
