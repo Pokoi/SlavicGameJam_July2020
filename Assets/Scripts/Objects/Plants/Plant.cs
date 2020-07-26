@@ -6,7 +6,7 @@ namespace Garden
     public class Plant : MonoBehaviour
     {
         
-        [SerializeField] string plantType;
+        [SerializeField] string plantType = "plantType";
 
         Pot pot;
         PlantState plantState;

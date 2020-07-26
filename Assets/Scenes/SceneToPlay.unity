@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -218,7 +218,7 @@ RectTransform:
   - {fileID: 850830114}
   - {fileID: 704325967}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -470,7 +470,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164703169
 GameObject:
@@ -596,7 +596,6 @@ MonoBehaviour:
   panel: {fileID: 0}
   fertilizer: {fileID: 0}
   close: {fileID: 0}
-  informationSystem: {fileID: 0}
 --- !u!4 &169900904
 Transform:
   m_ObjectHideFlags: 0
@@ -609,7 +608,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182574854
 GameObject:
@@ -1912,7 +1911,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600207663
 GameObject:
@@ -2859,7 +2858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &949558367
 GameObject:
@@ -3157,6 +3156,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101698086}
   m_CullTransparentMesh: 0
+--- !u!1 &1116525592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116525594}
+  - component: {fileID: 1116525593}
+  m_Layer: 0
+  m_Name: Plant Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1116525593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116525592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa445f0cc0a5b3408cac11ba2ed7fe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantPrefabs:
+  - {fileID: 2109160400863605014, guid: 32623b030e8e297449f2226f3133e1f5, type: 3}
+  - {fileID: 5727976073064490918, guid: 20132bb8188ee6647867bc22d8a34f60, type: 3}
+  - {fileID: 4432782139452133894, guid: 2e15ff79a302d1841bb653ab5fa4e8d9, type: 3}
+  - {fileID: 2109160400863605014, guid: c532c6b4631995d4ebe9adc1dcc1ef3a, type: 3}
+  - {fileID: 3265511201215108037, guid: 372d5ceb477413d4f9d69a0de3ee89b2, type: 3}
+  - {fileID: 4112819899306471804, guid: eebcbea637eb5e3488db608cfffc337d, type: 3}
+  - {fileID: 5234191219728187153, guid: bf8ba2a63efa2ee40930541e7c415d69, type: 3}
+  - {fileID: 7539634038789876745, guid: 7fcb11585d3fd7f41a122b5d0925c079, type: 3}
+  initialSize: 8
+--- !u!4 &1116525594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116525592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1156025305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,7 +3659,7 @@ PrefabInstance:
     - target: {fileID: 6624017205727130252, guid: 2eb211bc122fec74d8324b05ba7e86e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6624017205727130252, guid: 2eb211bc122fec74d8324b05ba7e86e0,
         type: 3}
@@ -3705,52 +3757,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285848660}
   m_CullTransparentMesh: 0
---- !u!1 &1308160989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1308160991}
-  - component: {fileID: 1308160990}
-  m_Layer: 0
-  m_Name: Plant Pool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1308160990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308160989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afa445f0cc0a5b3408cac11ba2ed7fe1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseElement: {fileID: 1024371730214717412, guid: bd76339144c3495408621fd37a4643d3,
-    type: 3}
-  initialSize: 8
---- !u!4 &1308160991
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308160989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343056502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4456,7 +4462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1689787827 stripped
 MonoBehaviour:
@@ -4887,7 +4893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be0b56de448ac34090d0ed9cef4a1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsPool: {fileID: 1308160990}
+  plantsPool: {fileID: 0}
   botanicManual: {fileID: 960003328}
 --- !u!114 &2053345281 stripped
 MonoBehaviour:
@@ -5394,7 +5400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2947647337830225675
 PrefabInstance:
@@ -6458,7 +6464,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155132754549464, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6468,7 +6474,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155133570383029, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6478,7 +6484,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155133645718436, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6488,7 +6494,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155133995595457, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6498,7 +6504,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155134106188953, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6508,7 +6514,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155134218743574, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6518,7 +6524,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 2686155134438819295, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6568,7 +6574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: plantPool
       value: 
-      objectReference: {fileID: 1308160990}
+      objectReference: {fileID: 0}
     - target: {fileID: 6422937454028191557, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: fertilizationEffect
@@ -6617,7 +6623,7 @@ PrefabInstance:
     - target: {fileID: 6422937454424447337, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6422937454424447337, guid: f4fa51201df209d42beceb6970690958,
         type: 3}
