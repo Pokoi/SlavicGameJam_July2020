@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Garden;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class DayNightCycle : MonoBehaviour
 {
 
     Animator animator;
+
+    [SerializeField] Calendar calendar;
     
     // [SerializeField] SpriteRenderer dawn;
     // [SerializeField] SpriteRenderer midday;
@@ -33,10 +36,12 @@ public class DayNightCycle : MonoBehaviour
     /// </summary>
     /// <param name="value"></param>
     public void Animate(string value)
-    {       
+    {        
         switch (value)
         {
-            case "dawn":{
+            case "dawn":{                
+                   
+                calendar.ChangeDay();
                 animator.SetTrigger("dawn");
                 break;
 

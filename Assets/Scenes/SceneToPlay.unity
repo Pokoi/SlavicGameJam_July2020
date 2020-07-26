@@ -579,6 +579,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a99978a842096e43aa93a4558067615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 0}
+  fertilizer: {fileID: 0}
+  close: {fileID: 0}
+  informationSystem: {fileID: 0}
 --- !u!4 &169900904
 Transform:
   m_ObjectHideFlags: 0
@@ -4666,7 +4670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSystem:
-    dayInSeconds: 12
+    dayInSeconds: 40
   plantManager: {fileID: 2014296785}
 --- !u!4 &2014296784
 Transform:
@@ -4874,6 +4878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterCanCursorTexture: {fileID: 2800000, guid: 415d987bcaaf5b148a97c69ff60a17ba,
     type: 3}
+  fertilizationCursorTexture: {fileID: 0}
   windowCollision:
     rectTransform: {fileID: 850830114}
     margin: 100

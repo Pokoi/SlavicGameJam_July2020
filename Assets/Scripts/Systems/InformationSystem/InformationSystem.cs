@@ -12,7 +12,7 @@ namespace Garden
         public Texture2D waterCanCursorTexture;
         public Texture2D fertilizationCursorTexture;
 
-    [HideInInspector]
+        [HideInInspector]
         public enum CURSOR_STATE { WATERINGCAN, DEFAULT, FERTILIZATIONMODE }
         private CURSOR_STATE currCursorState = CURSOR_STATE.DEFAULT;
         private bool isOverWateringCan = false;
@@ -30,7 +30,7 @@ namespace Garden
             if (hoverElement.mouseOver) //If mouse is over que show info
             {
                 StartCoroutine("FollowingMouse");
-                windowCollision.rectTransform.gameObject.SetActive(true);              
+                windowCollision.rectTransform.gameObject.SetActive(true);
             }
             else
             {
@@ -47,25 +47,25 @@ namespace Garden
 
                 if (infoElement.component is WateringCan)
                 {
-                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);
+                    SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                     isOverWateringCan = true;
                 }
-                else if(infoElement.component is FertilizationEffect){
-                    SetCursorImg(fertilizationCursorTexture,CURSOR_STATE.FERTILIZATIONMODE);
+                else if (infoElement.component is FertilizationEffect) {
+                    SetCursorImg(fertilizationCursorTexture, CURSOR_STATE.FERTILIZATIONMODE);
                     isOverFertilizer = true;
                 }
             }
 
             else if (!PlayerController.Instance.IsUsingWaterCan && !PlayerController.Instance.IsUsingFertilizer)
             {
-                SetCursorImg(null,CURSOR_STATE.DEFAULT);
+                SetCursorImg(null, CURSOR_STATE.DEFAULT);
                 isOverWateringCan = false;
                 isOverFertilizer = false;
             }
 
         }
 
-    
+
         public void SetCursorImg(Texture2D cursortTex, CURSOR_STATE cState)
         {
 
@@ -73,14 +73,14 @@ namespace Garden
             Cursor.SetCursor(cursortTex, Vector2.zero, CursorMode.Auto);
         }
 
-        public void ChangeFertilizationCursor(bool active){
+        public void ChangeFertilizationCursor(bool active) {
             PlayerController.Instance.IsUsingFertilizer = active;
             Texture2D texture = active ? fertilizationCursorTexture : null;
 
-            InformationSystem.CURSOR_STATE cState = active ? 
+            InformationSystem.CURSOR_STATE cState = active ?
                 CURSOR_STATE.FERTILIZATIONMODE : CURSOR_STATE.DEFAULT;
-            
-            SetCursorImg(texture,cState);
+
+            SetCursorImg(texture, cState);
         }
 
         public void ElementClicked(Component component)
@@ -97,7 +97,7 @@ namespace Garden
                 if (isOverWateringCan)
                 {
                     PlayerController.Instance.IsUsingWaterCan = true;
-                    SetCursorImg(waterCanCursorTexture,CURSOR_STATE.WATERINGCAN);                   
+                    SetCursorImg(waterCanCursorTexture, CURSOR_STATE.WATERINGCAN);
                 }
                 /*else if(isOverFertilizer){
                     PlayerController.Instance.IsUsingFertilizer = true;
@@ -111,25 +111,23 @@ namespace Garden
                 PlayerController.Instance.IsUsingFertilizer = false;
 
                 isOverWateringCan = isOverFertilizer = false;
-                SetCursorImg(null,CURSOR_STATE.DEFAULT);
-
+                SetCursorImg(null, CURSOR_STATE.DEFAULT);
+            }
+        }
 
         IEnumerator FollowingMouse()
         {
             while (true)
             {
-                Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);                
-                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);  
+                Vector3 convertedMousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+                windowCollision.rectTransform.position = Vector2.Lerp(windowCollision.rectTransform.position, windowCollision.CalculatePosition(new Vector2(convertedMousePosition.x, convertedMousePosition.y)), UnityEngine.Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
-
     }
-}
 
 
-
-    [Serializable]
+        [Serializable]
     public class WindowCollision
     {
         Box window = new Box(new Vector2(2048 * 0.5f,  1535 * 0.5f),
@@ -230,5 +228,4 @@ namespace Garden
     }
 
 
-}
 }
